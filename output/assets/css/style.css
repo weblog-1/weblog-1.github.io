@@ -1,0 +1,18 @@
+div.page-attributes {
+    height: 2em;
+    clear: both;
+}
+
+div.page-attributes time,
+div.page-attributes div {
+    float: right;
+}
+
+div.page-attributes div.categories,
+div.page-attributes div.tags {
+    margin-right: 8px;
+}
+
+div.page-attributes i {
+    margin-right: 4px;
+}

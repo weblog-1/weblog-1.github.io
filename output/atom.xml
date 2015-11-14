@@ -1,18 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
-<channel>
-        <title>si dimentica subito</title>
-        <description>si dimentica subito - croissant</description>
-        <link></link>
-        <link></link>
-        <lastBuildDate>2015-11-15T08:45:40+09:00</lastBuildDate>
-        <pubDate>2015-11-15T08:45:40+09:00</pubDate>
-        <ttl>1800</ttl>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>si dimentica subito</title>
+ <link href="/" rel="self"/>
+ <link href=""/>
+ <updated>2015-11-15T07:57:20+09:00</updated>
+ <id></id>
+ <author>
+   <name>croissant</name>
+   <email></email>
+ </author>
 
-
-        <item>
-                <title>Blowfish暗号化・復号 PHP - Ruby間</title>
-                <description>&lt;p&gt;あるシステムで暗号化したものを他のシステムで復号する、
+ 
+ <entry>
+   <title>Blowfish暗号化・復号 PHP - Ruby間</title>
+   <link href="/ruby/2015/11/14/blowfish-ruby-php"/>
+   <updated>2015-11-14T00:00:00+09:00</updated>
+   <id>/ruby/2015/11/14/blowfish-ruby-php</id>
+   <content type="html">&lt;p&gt;あるシステムで暗号化したものを他のシステムで復号する、
 というパターンはありがちなのですが…&lt;/p&gt;
 
 &lt;p&gt;昔やったことがあるから大丈夫と高をくくっていたら、
@@ -259,15 +264,15 @@ opensslを使用した際、デフォルト値が16になっており、
 &lt;p&gt;その割には仕組みが複雑なせいでハマりやすい分野だと思います。&lt;/p&gt;
 
 &lt;p&gt;気をつけましょう。&lt;/p&gt;
-</description>
-                <link>/ruby/2015/11/14/blowfish-ruby-php</link>
-                <guid>/ruby/2015/11/14/blowfish-ruby-php</guid>
-                <pubDate>2015-11-14T00:00:00+09:00</pubDate>
-        </item>
-
-        <item>
-                <title>Scalaのコマンドラインプログラム</title>
-                <description>&lt;p&gt;言語に対する理解を深めることを目的として、コマンドラインプログラムを作ってみます。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Scalaのコマンドラインプログラム</title>
+   <link href="/scala/2015/09/23/scala-1"/>
+   <updated>2015-09-23T00:00:00+09:00</updated>
+   <id>/scala/2015/09/23/scala-1</id>
+   <content type="html">&lt;p&gt;言語に対する理解を深めることを目的として、コマンドラインプログラムを作ってみます。&lt;/p&gt;
 
 &lt;p&gt;Play Frameworkを触っていて、やはりScala言語自体に対する理解が足りなすぎることに直面した、
 というのが実際のところです。&lt;/p&gt;
@@ -408,15 +413,15 @@ $
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description>
-                <link>/scala/2015/09/23/scala-1</link>
-                <guid>/scala/2015/09/23/scala-1</guid>
-                <pubDate>2015-09-23T00:00:00+09:00</pubDate>
-        </item>
-
-        <item>
-                <title>Play Frameworkでscalaをいじってみる2</title>
-                <description>&lt;p&gt;前回の続きです。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Play Frameworkでscalaをいじってみる2</title>
+   <link href="/scala/2015/09/14/play-fw2"/>
+   <updated>2015-09-14T00:00:00+09:00</updated>
+   <id>/scala/2015/09/14/play-fw2</id>
+   <content type="html">&lt;p&gt;前回の続きです。&lt;/p&gt;
 
 &lt;p&gt;前回同様、&lt;a href=&quot;https://www.playframework.com/documentation/ja/2.3.x/Tutorials&quot;&gt;このページ&lt;/a&gt;をそのままなぞっているだけです。&lt;/p&gt;
 
@@ -645,15 +650,15 @@ class Application extends Controller {
 &lt;p&gt;…しかし、絶対的にScala言語に関する知識が不足しているので、エレガントとは程遠いコードになってしまいました。&lt;/p&gt;
 
 &lt;p&gt;次回はModelを作成してコントローラをすっきりさせたいと思います。&lt;/p&gt;
-</description>
-                <link>/scala/2015/09/14/play-fw2</link>
-                <guid>/scala/2015/09/14/play-fw2</guid>
-                <pubDate>2015-09-14T00:00:00+09:00</pubDate>
-        </item>
-
-        <item>
-                <title>Play Frameworkでscalaをいじってみる</title>
-                <description>&lt;p&gt;java界隈の話題にはあまり目を向けていないのですが、
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Play Frameworkでscalaをいじってみる</title>
+   <link href="/scala/2015/09/10/play-fw"/>
+   <updated>2015-09-10T00:00:00+09:00</updated>
+   <id>/scala/2015/09/10/play-fw</id>
+   <content type="html">&lt;p&gt;java界隈の話題にはあまり目を向けていないのですが、
 少しはscalaを触っておいてもいいかと思い、
 比較的盛り上がってそうなPlay Frameworkを動かしてみようと思います。&lt;/p&gt;
 
@@ -825,15 +830,15 @@ num_list: Seq[Int]
 &lt;p&gt;以上、Hello Worldに毛が生えた程度の内容ですが、今回はここまでにしておきます。&lt;/p&gt;
 
 &lt;p&gt;次はDB接続やデプロイ方法などについて確認できればいいな…&lt;/p&gt;
-</description>
-                <link>/scala/2015/09/10/play-fw</link>
-                <guid>/scala/2015/09/10/play-fw</guid>
-                <pubDate>2015-09-10T00:00:00+09:00</pubDate>
-        </item>
-
-        <item>
-                <title>ansibleによるコンテナ設定</title>
-                <description>&lt;p&gt;前回に引き続き、dockerコンテナの設定を行います。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ansibleによるコンテナ設定</title>
+   <link href="/docker/2015/09/05/docker-ansible"/>
+   <updated>2015-09-05T23:50:00+09:00</updated>
+   <id>/docker/2015/09/05/docker-ansible</id>
+   <content type="html">&lt;p&gt;前回に引き続き、dockerコンテナの設定を行います。&lt;/p&gt;
 
 &lt;p&gt;今回は各種設定をansibleで行ってみます。&lt;/p&gt;
 
@@ -1261,15 +1266,15 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
   &lt;li&gt;includeしているファイルのhosts設定はすべてallに変更しました。&lt;/li&gt;
 &lt;/ul&gt;
 
-</description>
-                <link>/docker/2015/09/05/docker-ansible</link>
-                <guid>/docker/2015/09/05/docker-ansible</guid>
-                <pubDate>2015-09-05T23:50:00+09:00</pubDate>
-        </item>
-
-        <item>
-                <title>Dockerfileによるdockerイメージ作成</title>
-                <description>&lt;p&gt;手頃なdockerのcheat sheetがあったので、そちらを参考にシンプルなものを作成します。 &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Dockerfileによるdockerイメージ作成</title>
+   <link href="/docker/2015/08/26/docker-file"/>
+   <updated>2015-08-26T00:00:00+09:00</updated>
+   <id>/docker/2015/08/26/docker-file</id>
+   <content type="html">&lt;p&gt;手頃なdockerのcheat sheetがあったので、そちらを参考にシンプルなものを作成します。 &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;lt;&amp;lt;http://lzone.de/cheat-sheet/Docker&amp;gt;&amp;gt;&lt;/p&gt;
 
@@ -1367,15 +1372,15 @@ Welcome to Ubuntu 15.04 (GNU/Linux 3.16.0-4-amd64 x86_64)
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
-</description>
-                <link>/docker/2015/08/26/docker-file</link>
-                <guid>/docker/2015/08/26/docker-file</guid>
-                <pubDate>2015-08-26T00:00:00+09:00</pubDate>
-        </item>
-
-        <item>
-                <title>docker環境構築</title>
-                <description>&lt;p&gt;環境はdebian8(jessie)です。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>docker環境構築</title>
+   <link href="/docker/2015/08/24/docker"/>
+   <updated>2015-08-24T00:00:00+09:00</updated>
+   <id>/docker/2015/08/24/docker</id>
+   <content type="html">&lt;p&gt;環境はdebian8(jessie)です。&lt;/p&gt;
 
 &lt;p&gt;用途は完全に開発環境としての利用を想定しています。&lt;/p&gt;
 
@@ -1502,12 +1507,8 @@ docker-srv1
 
 &lt;p&gt;次は各種用途に使用するためのイメージを作成するため、Dockerfileを作成してみようと思います。&lt;/p&gt;
 
-</description>
-                <link>/docker/2015/08/24/docker</link>
-                <guid>/docker/2015/08/24/docker</guid>
-                <pubDate>2015-08-24T00:00:00+09:00</pubDate>
-        </item>
-
-
-</channel>
-</rss>
+</content>
+ </entry>
+ 
+ 
+</feed>
