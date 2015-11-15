@@ -4,7 +4,7 @@
  <title>si dimentica subito</title>
  <link href="/" rel="self"/>
  <link href=""/>
- <updated>2015-11-15T09:11:44+09:00</updated>
+ <updated>2015-11-15T17:21:31+09:00</updated>
  <id></id>
  <author>
    <name>croissant</name>
@@ -14,7 +14,8 @@
  
  <entry>
    <title>Blowfish暗号化・復号 PHP - Ruby間</title>
-   <link href="/ruby/2015/11/14/blowfish-ruby-php"/>
+   <link href="/ruby/2015/11/14/blowfish-ruby-php" rel="self" type="application/atom+xml"/>
+   <link rel="hub" href="http://pubsubhubbub.appspot.com"/>
    <updated>2015-11-14T00:00:00+09:00</updated>
    <id>/ruby/2015/11/14/blowfish-ruby-php</id>
    <content type="html">&lt;p&gt;あるシステムで暗号化したものを他のシステムで復号する、
@@ -269,7 +270,8 @@ opensslを使用した際、デフォルト値が16になっており、
  
  <entry>
    <title>Scalaのコマンドラインプログラム</title>
-   <link href="/scala/2015/09/23/scala-1"/>
+   <link href="/scala/2015/09/23/scala-1" rel="self" type="application/atom+xml"/>
+   <link rel="hub" href="http://pubsubhubbub.appspot.com"/>
    <updated>2015-09-23T00:00:00+09:00</updated>
    <id>/scala/2015/09/23/scala-1</id>
    <content type="html">&lt;p&gt;言語に対する理解を深めることを目的として、コマンドラインプログラムを作ってみます。&lt;/p&gt;
@@ -418,7 +420,8 @@ $
  
  <entry>
    <title>Play Frameworkでscalaをいじってみる2</title>
-   <link href="/scala/2015/09/14/play-fw2"/>
+   <link href="/scala/2015/09/14/play-fw2" rel="self" type="application/atom+xml"/>
+   <link rel="hub" href="http://pubsubhubbub.appspot.com"/>
    <updated>2015-09-14T00:00:00+09:00</updated>
    <id>/scala/2015/09/14/play-fw2</id>
    <content type="html">&lt;p&gt;前回の続きです。&lt;/p&gt;
@@ -655,7 +658,8 @@ class Application extends Controller {
  
  <entry>
    <title>Play Frameworkでscalaをいじってみる</title>
-   <link href="/scala/2015/09/10/play-fw"/>
+   <link href="/scala/2015/09/10/play-fw" rel="self" type="application/atom+xml"/>
+   <link rel="hub" href="http://pubsubhubbub.appspot.com"/>
    <updated>2015-09-10T00:00:00+09:00</updated>
    <id>/scala/2015/09/10/play-fw</id>
    <content type="html">&lt;p&gt;java界隈の話題にはあまり目を向けていないのですが、
@@ -835,7 +839,8 @@ num_list: Seq[Int]
  
  <entry>
    <title>ansibleによるコンテナ設定</title>
-   <link href="/docker/2015/09/05/docker-ansible"/>
+   <link href="/docker/2015/09/05/docker-ansible" rel="self" type="application/atom+xml"/>
+   <link rel="hub" href="http://pubsubhubbub.appspot.com"/>
    <updated>2015-09-05T23:50:00+09:00</updated>
    <id>/docker/2015/09/05/docker-ansible</id>
    <content type="html">&lt;p&gt;前回に引き続き、dockerコンテナの設定を行います。&lt;/p&gt;
@@ -1271,7 +1276,8 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
  
  <entry>
    <title>Dockerfileによるdockerイメージ作成</title>
-   <link href="/docker/2015/08/26/docker-file"/>
+   <link href="/docker/2015/08/26/docker-file" rel="self" type="application/atom+xml"/>
+   <link rel="hub" href="http://pubsubhubbub.appspot.com"/>
    <updated>2015-08-26T00:00:00+09:00</updated>
    <id>/docker/2015/08/26/docker-file</id>
    <content type="html">&lt;p&gt;手頃なdockerのcheat sheetがあったので、そちらを参考にシンプルなものを作成します。 &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
@@ -1377,7 +1383,8 @@ Welcome to Ubuntu 15.04 (GNU/Linux 3.16.0-4-amd64 x86_64)
  
  <entry>
    <title>docker環境構築</title>
-   <link href="/docker/2015/08/24/docker"/>
+   <link href="/docker/2015/08/24/docker" rel="self" type="application/atom+xml"/>
+   <link rel="hub" href="http://pubsubhubbub.appspot.com"/>
    <updated>2015-08-24T00:00:00+09:00</updated>
    <id>/docker/2015/08/24/docker</id>
    <content type="html">&lt;p&gt;環境はdebian8(jessie)です。&lt;/p&gt;
