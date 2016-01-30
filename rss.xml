@@ -5,10 +5,190 @@
         <description>si dimentica subito - croissant</description>
         <link></link>
         <link></link>
-        <lastBuildDate>2015-11-18T22:02:57+09:00</lastBuildDate>
-        <pubDate>2015-11-18T22:02:57+09:00</pubDate>
+        <lastBuildDate>2016-01-30T09:21:16+09:00</lastBuildDate>
+        <pubDate>2016-01-30T09:21:16+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Capistrano3 非railsでの使用</title>
+                <description>&lt;p&gt;capistranoは便利ですね。&lt;/p&gt;
+
+&lt;p&gt;ただ、巷の情報はrailsが前提となっているケースが殆どですので、
+そうでないものでも使ってみよう、というものです。&lt;/p&gt;
+
+&lt;p&gt;実は、version2.xの頃にそれなりに使用していましたが、昨今は3.x系になっており、
+かなり勝手が違っています(こういうのなんとかならないんでしょうかね…)。&lt;/p&gt;
+
+&lt;p&gt;従いまして、今回は3.4.0となります。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ cd project_dir
+$ bundle init
+$ echo &amp;quot;gem &#39;capistrano&#39;&amp;quot; &amp;gt;&amp;gt; Gemfile
+$ echo &amp;quot;gem &#39;capistrano-rbenv&#39;&amp;quot; &amp;gt;&amp;gt; Gemfile
+$ echo &amp;quot;gem &#39;capistrano-bundler&#39;&amp;quot; &amp;gt;&amp;gt; Gemfile
+$ bundle install --path=vendor/bundle
+$ bundle exec cap install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;このような感じで、一気にインストール出来ました。&lt;/p&gt;
+
+&lt;p&gt;インストール後は、以下のようなファイル・ディレクトリができています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Capfile
+config/deploy.rb
+config/deploy/production.rb
+config/deploy/staging.rb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;capfile&quot;&gt;Capfileの設定&lt;/h2&gt;
+
+&lt;p&gt;最初はCapfileを編集します。
+この目的は、rbenvをデプロイ対象で使用できるようにするためです。&lt;/p&gt;
+
+&lt;p&gt;capistrano/rbenv と capistrano/bundler のコメントを除去します。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Capfile&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#777&quot;&gt;# require &#39;capistrano/rvm&#39;&lt;/span&gt;
+require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;capistrano/rbenv&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span style=&quot;color:#777&quot;&gt;# require &#39;capistrano/chruby&#39;&lt;/span&gt;
+require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;capistrano/bundler&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span style=&quot;color:#777&quot;&gt;# require &#39;capistrano/rails/assets&#39;&lt;/span&gt;
+&lt;span style=&quot;color:#777&quot;&gt;# require &#39;capistrano/rails/migrations&#39;&lt;/span&gt;
+&lt;span style=&quot;color:#777&quot;&gt;# require &#39;capistrano/passenger&#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;stagingrb&quot;&gt;staging.rbの設定&lt;/h2&gt;
+
+&lt;p&gt;staging.rb / production.rb は、それぞれ環境用の設定になっています。
+今回はstaging.rbを使用します。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;config/deploy/staging.rb&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;server &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;target-server&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#606&quot;&gt;user&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;username&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#606&quot;&gt;roles&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%w{&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;app&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+role &lt;span style=&quot;color:#A60&quot;&gt;:app&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%w{&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;username@target-server&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;コメントをすべて除去しました。
+実際は参考になる記述なので、残しておいたほうがよいでしょう。&lt;/p&gt;
+
+&lt;h2 id=&quot;deployrb&quot;&gt;deploy.rbの設定&lt;/h2&gt;
+
+&lt;p&gt;最後にdeploy.rbですが、これは実際のデプロイ詳細を記述しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;config/deploy.rb&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#777&quot;&gt;# config valid only for current version of Capistrano&lt;/span&gt;
+lock &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;3.4.0&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+
+set &lt;span style=&quot;color:#A60&quot;&gt;:application&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;my-app-name&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+set &lt;span style=&quot;color:#A60&quot;&gt;:repo_url&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;git@github.org:[github username]/[github repo].git&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+
+set &lt;span style=&quot;color:#A60&quot;&gt;:deploy_to&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;/path/to/target_dir&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+set &lt;span style=&quot;color:#A60&quot;&gt;:scm&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:git&lt;/span&gt;
+set &lt;span style=&quot;color:#A60&quot;&gt;:log_level&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:debug&lt;/span&gt;
+set &lt;span style=&quot;color:#A60&quot;&gt;:linked_dirs&lt;/span&gt;, fetch(&lt;span style=&quot;color:#A60&quot;&gt;:linked_dirs&lt;/span&gt;, []).push(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;log&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;tmp/pids&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;vendor/bundle&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;)
+set &lt;span style=&quot;color:#A60&quot;&gt;:keep_releases&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;5&lt;/span&gt;
+
+set &lt;span style=&quot;color:#A60&quot;&gt;:rbenv_path&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;/usr/local/rbenv&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+set &lt;span style=&quot;color:#A60&quot;&gt;:rbenv_ruby&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;2.2.3&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+
+set &lt;span style=&quot;color:#A60&quot;&gt;:bundle_path&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;vendor/bundle&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+
+namespace &lt;span style=&quot;color:#A60&quot;&gt;:deploy&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
+  task &lt;span style=&quot;color:#A60&quot;&gt;:restart&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
+    on roles(&lt;span style=&quot;color:#A60&quot;&gt;:app&lt;/span&gt;) &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
+    execute &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;touch &lt;/span&gt;&lt;span style=&quot;background-color:hsla(0,0%,0%,0.07);color:black&quot;&gt;&lt;span style=&quot;font-weight:bold;color:#666&quot;&gt;#{&lt;/span&gt;fetch(&lt;span style=&quot;color:#A60&quot;&gt;:deploy_to&lt;/span&gt;)&lt;span style=&quot;font-weight:bold;color:#666&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;/current/abc&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+  after &lt;span style=&quot;color:#A60&quot;&gt;:published&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:restart&lt;/span&gt;
+&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;ここでもコメントは除去しています。
+一応わかりやすいように、デフォルトで有効になる設定もあえて書いているところがあります(git等)。&lt;/p&gt;
+
+&lt;p&gt;以下のコマンドでこの設定でのデプロイを実行します。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ bundle exec cap staging deploy
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;基本的には、gitリポジトリにmasterブランチを対象サーバの対象ディレクトリに展開します。&lt;/p&gt;
+
+&lt;p&gt;今回はrubyでbundlerを使用したプログラムを想定しており、rbenvの設定やbundleディレクトリの設定も記述しています。&lt;/p&gt;
+
+&lt;p&gt;他の言語のプログラムをデプロイする場合は、これらは不要です。&lt;/p&gt;
+
+&lt;p&gt;本来ならば、最後の’namespace’の部分で、配置後の作業を記述しますが、今回はabcというファイルをtouchしているだけです。&lt;/p&gt;
+
+&lt;p&gt;通常はデーモンプログラムを再起動したり、リリースバージョンを書き換えたりと、自由に設定可能です。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;上記設定では、対象ディレクトリは /path/to/target_dir ですが、実行後にこの中を覗くと、以下のような構成になっています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;├── current -&amp;gt; /path/to/target_dir/releases/20151207163431
+├── releases
+│   └── 20151207163431
+│       ├── abc
+│       ├── Gemfile
+│       ├── Gemfile.lock
+│       ├── log -&amp;gt; /path/to/target_dir/shared/log
+│       ├── REVISION
+│       ├── tmp
+│       └── vendor
+├── repo
+│   ├── branches
+│   ├── config
+│   ├── description
+│   ├── FETCH_HEAD
+│   ├── HEAD
+│   ├── hooks
+│   ├── info
+│   ├── objects
+│   ├── packed-refs
+│   └── refs
+├── revisions.log
+└── shared
+    ├── bundle
+    │   └── ruby
+    ├── log
+    ├── tmp
+    │   └── pids
+    └── vendor
+        └── bundle
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置したプログラムファイルはreleasesディレクトリ下に置かれますが、&lt;/p&gt;
+
+&lt;p&gt;デプロイを実行するたびにサブディレクトリを作成します。&lt;/p&gt;
+
+&lt;p&gt;実体はこちらで、current シンボリックリンクによってパスが変わらないようにしているわけですね。&lt;/p&gt;
+
+&lt;p&gt;sharedディレクトリには、デプロイしても固定にしたいファイル・ディレクトリを設置します。&lt;/p&gt;
+
+&lt;p&gt;データベースの接続情報やリポジトリに含まない設定ファイル等はここに設置すればよいでしょう。&lt;/p&gt;
+</description>
+                <link>/ruby/2015/12/07/capistrano</link>
+                <guid>/ruby/2015/12/07/capistrano</guid>
+                <pubDate>2015-12-07T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>Blowfish暗号化・復号 PHP - Ruby間</title>

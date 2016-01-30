@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://weblog-1.github.io/ruby/2015/12/07/capistrano</loc>
+    <lastmod>2015-12-07T00:00:00+09:00</lastmod>
+  </url>
+  <url>
     <loc>http://weblog-1.github.io/ruby/2015/11/14/blowfish-ruby-php</loc>
     <lastmod>2015-11-14T00:00:00+09:00</lastmod>
   </url>
@@ -63,6 +67,9 @@
     </url>
     <url>
       <loc>http://weblog-1.github.io/ruby/2015/11/14/blowfish-ruby-php</loc>
+    </url>
+    <url>
+      <loc>http://weblog-1.github.io/ruby/2015/12/07/capistrano</loc>
     </url>
   <url>
     <loc>http://weblog-1.github.io/404.html</loc>
