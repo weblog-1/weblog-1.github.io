@@ -23,8 +23,8 @@
 
 
     
-    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1454113277" rel="stylesheet">
-    <link href="/assets/css/style.css?1454113277" rel="stylesheet">
+    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1481986638" rel="stylesheet">
+    <link href="/assets/css/style.css?1481986638" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="/assets/themes/bootstrap/resources/respond/Respond.min.js"></script>
     <![endif]-->
@@ -147,7 +147,7 @@
 
 <p>従いまして、今回は3.4.0となります。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ cd project_dir
 $ bundle init
 $ echo &quot;gem 'capistrano'&quot; &gt;&gt; Gemfile
@@ -169,7 +169,7 @@ config/deploy/production.rb
 config/deploy/staging.rb
 </code></pre>
 
-<h2 id="capfile">Capfileの設定</h2>
+<h2 id="capfileの設定">Capfileの設定</h2>
 
 <p>最初はCapfileを編集します。
 この目的は、rbenvをデプロイ対象で使用できるようにするためです。</p>
@@ -178,7 +178,7 @@ config/deploy/staging.rb
 
 <p><em>Capfile</em></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-ruby highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#777"># require 'capistrano/rvm'</span>
 require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">capistrano/rbenv</span><span style="color:#710">'</span></span>
 <span style="color:#777"># require 'capistrano/chruby'</span>
@@ -190,14 +190,14 @@ require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:
 </div>
 </div>
 
-<h2 id="stagingrb">staging.rbの設定</h2>
+<h2 id="stagingrbの設定">staging.rbの設定</h2>
 
 <p>staging.rb / production.rb は、それぞれ環境用の設定になっています。
 今回はstaging.rbを使用します。</p>
 
 <p><em>config/deploy/staging.rb</em></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-ruby highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>server <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">target-server</span><span style="color:#710">'</span></span>, <span style="color:#606">user</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">username</span><span style="color:#710">'</span></span>, <span style="color:#606">roles</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%w{</span><span style="color:#D20">app</span><span style="color:#710">}</span></span>
 role <span style="color:#A60">:app</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%w{</span><span style="color:#D20">username@target-server</span><span style="color:#710">}</span></span>
 </pre></div>
@@ -207,13 +207,13 @@ role <span style="color:#A60">:app</span>, <span style="background-color:hsla(0,
 <p>コメントをすべて除去しました。
 実際は参考になる記述なので、残しておいたほうがよいでしょう。</p>
 
-<h2 id="deployrb">deploy.rbの設定</h2>
+<h2 id="deployrbの設定">deploy.rbの設定</h2>
 
 <p>最後にdeploy.rbですが、これは実際のデプロイ詳細を記述しています。</p>
 
 <p><em>config/deploy.rb</em></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-ruby highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#777"># config valid only for current version of Capistrano</span>
 lock <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">3.4.0</span><span style="color:#710">'</span></span>
 
@@ -248,7 +248,7 @@ namespace <span style="color:#A60">:deploy</span> <span style="color:#080;font-w
 
 <p>以下のコマンドでこの設定でのデプロイを実行します。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ bundle exec cap staging deploy
 </pre></div>
 </div>
@@ -320,7 +320,7 @@ namespace <span style="color:#A60">:deploy</span> <span style="color:#080;font-w
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next"><a href="/ruby/2016/12/17/http-request-test" title="Faradayでのstub使用">Next &rarr;</a></li>
       
     </ul>
     <hr>

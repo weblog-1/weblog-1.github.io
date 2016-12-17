@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Faradayでのstub使用</title>
+    
+    <meta name="author" content="croissant">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<meta property="og:type" content="article">
+<meta property="og:title" content="Faradayでのstub使用">
+
+<meta property="og:description" content="PHPでHTTPクライアントのテストを書く機会があったので、同様のことをFaradayではどう...">
+
+
+<meta property="og:site_name" content="si dimentica subito">
+<meta property="og:url" content="http://weblog-1.github.io/ruby/2016/12/17/http-request-test">
+
+<meta property="article:published_time" content="2016-12-17T00:00:00+09:00">
+
+
+
+    
+    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1481986638" rel="stylesheet">
+    <link href="/assets/css/style.css?1481986638" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="/assets/themes/bootstrap/resources/respond/Respond.min.js"></script>
+    <![endif]-->
+
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">si dimentica subito</a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      
+<div class="page-header">
+  <h1>Faradayでのstub使用 </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-md-12">
+    <div class="page-attributes">
+      <time datetime="2016-12-17 00:00:00 +0900">2016-12-17</time>
+
+      
+      <div class="categories">
+        
+        <i class="glyphicon glyphicon-folder-open"></i>
+        <a href="/categories.html#ruby-ref">ruby</a>
+        
+      </div>
+      
+
+      
+      <div class="tags">
+        
+        <i class="glyphicon glyphicon-tag"></i>
+        <a href="/tags.html#ruby-ref">ruby</a>
+        
+        <i class="glyphicon glyphicon-tag"></i>
+        <a href="/tags.html#php-ref">php</a>
+        
+      </div>
+      
+    </div>
+    
+    <div class="content">
+      <p>PHPでHTTPクライアントのテストを書く機会があったので、
+同様のことをFaradayではどうやって実現するのか調べてみました。</p>
+
+<div class="language-ruby highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#036;font-weight:bold">Faraday</span>.new <span style="color:#080;font-weight:bold">do</span> |connection|
+  connection.adapter <span style="color:#A60">:test</span>, <span style="color:#036;font-weight:bold">Faraday</span>::<span style="color:#036;font-weight:bold">Adapter</span>::<span style="color:#036;font-weight:bold">Test</span>::<span style="color:#036;font-weight:bold">Stubs</span>.new <span style="color:#080;font-weight:bold">do</span> |stub|
+    stub.get(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">http://weblog-1.github.io/</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">do</span>
+      [<span style="color:#00D">200</span>, { <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Content-Type</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">application/json</span><span style="color:#710">'</span></span> }, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">{&quot;test&quot;:&quot;OK&quot;}</span><span style="color:#710">'</span></span>]
+    <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>stub.get() の部分で、url =&gt; bodyなどのHashを回すなどして、一度に複数の設定ができます。</p>
+
+<p><a href="https://github.com/weblog-1/http-request-test">テストコード</a></p>
+
+<p>ちなみにPHPでは、guzzleという便利なクライアントがあり、そちらを使用しました。</p>
+
+<p>これを使用すれば同様のことが実現可能です。</p>
+
+<h3 id="参考">参考</h3>
+
+<p><a href="http://www.rubydoc.info/gems/faraday/index">Documentation for faraday</a></p>
+
+<p><a href="http://docs.guzzlephp.org/en/latest/">Guzzle Documentation</a></p>
+
+
+    </div>
+
+    <hr>
+    
+    <ul class="pagination">
+      
+        <li class="prev"><a href="/ruby/2015/12/07/capistrano" title="Capistrano3 非railsでの使用">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+    </ul>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'weblog-1'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      <hr>
+      <footer>
+        <p>
+          &copy; 2016 croissant
+          <span class="pull-right text-muted">
+            powered by
+            <a href="http://dbtek.github.io/jekyll-bootstrap-3" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll-Bootstrap-3</a>
+            and <a href="http://getbootstrap.com" target="_blank">Twitter Bootstrap 3.0.3</a>
+          </span>
+        </p>
+      </footer>
+    </div>
+
+    
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-66930637-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+    <script src="/assets/themes/bootstrap/resources/jquery/jquery.min.js"></script>
+    <script src="/assets/themes/bootstrap/resources/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
+

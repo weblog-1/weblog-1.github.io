@@ -5,10 +5,47 @@
         <description>si dimentica subito - croissant</description>
         <link></link>
         <link></link>
-        <lastBuildDate>2016-01-30T09:21:16+09:00</lastBuildDate>
-        <pubDate>2016-01-30T09:21:16+09:00</pubDate>
+        <lastBuildDate>2016-12-17T23:57:17+09:00</lastBuildDate>
+        <pubDate>2016-12-17T23:57:17+09:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Faradayでのstub使用</title>
+                <description>&lt;p&gt;PHPでHTTPクライアントのテストを書く機会があったので、
+同様のことをFaradayではどうやって実現するのか調べてみました。&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Faraday&lt;/span&gt;.new &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt; |connection|
+  connection.adapter &lt;span style=&quot;color:#A60&quot;&gt;:test&lt;/span&gt;, &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Faraday&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Adapter&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Test&lt;/span&gt;::&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;Stubs&lt;/span&gt;.new &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt; |stub|
+    stub.get(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;http://weblog-1.github.io/&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;) &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt;
+      [&lt;span style=&quot;color:#00D&quot;&gt;200&lt;/span&gt;, { &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Content-Type&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;application/json&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt; }, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;{&amp;quot;test&amp;quot;:&amp;quot;OK&amp;quot;}&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;]
+    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+  &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;stub.get() の部分で、url =&amp;gt; bodyなどのHashを回すなどして、一度に複数の設定ができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/weblog-1/http-request-test&quot;&gt;テストコード&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ちなみにPHPでは、guzzleという便利なクライアントがあり、そちらを使用しました。&lt;/p&gt;
+
+&lt;p&gt;これを使用すれば同様のことが実現可能です。&lt;/p&gt;
+
+&lt;h3 id=&quot;参考&quot;&gt;参考&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.rubydoc.info/gems/faraday/index&quot;&gt;Documentation for faraday&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://docs.guzzlephp.org/en/latest/&quot;&gt;Guzzle Documentation&lt;/a&gt;&lt;/p&gt;
+
+</description>
+                <link>/ruby/2016/12/17/http-request-test</link>
+                <guid>/ruby/2016/12/17/http-request-test</guid>
+                <pubDate>2016-12-17T00:00:00+09:00</pubDate>
+        </item>
 
         <item>
                 <title>Capistrano3 非railsでの使用</title>
@@ -22,12 +59,12 @@
 
 &lt;p&gt;従いまして、今回は3.4.0となります。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ cd project_dir
 $ bundle init
-$ echo &amp;quot;gem &#39;capistrano&#39;&amp;quot; &amp;gt;&amp;gt; Gemfile
-$ echo &amp;quot;gem &#39;capistrano-rbenv&#39;&amp;quot; &amp;gt;&amp;gt; Gemfile
-$ echo &amp;quot;gem &#39;capistrano-bundler&#39;&amp;quot; &amp;gt;&amp;gt; Gemfile
+$ echo &amp;quot;gem 'capistrano'&amp;quot; &amp;gt;&amp;gt; Gemfile
+$ echo &amp;quot;gem 'capistrano-rbenv'&amp;quot; &amp;gt;&amp;gt; Gemfile
+$ echo &amp;quot;gem 'capistrano-bundler'&amp;quot; &amp;gt;&amp;gt; Gemfile
 $ bundle install --path=vendor/bundle
 $ bundle exec cap install
 &lt;/pre&gt;&lt;/div&gt;
@@ -44,7 +81,7 @@ config/deploy/production.rb
 config/deploy/staging.rb
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;capfile&quot;&gt;Capfileの設定&lt;/h2&gt;
+&lt;h2 id=&quot;capfileの設定&quot;&gt;Capfileの設定&lt;/h2&gt;
 
 &lt;p&gt;最初はCapfileを編集します。
 この目的は、rbenvをデプロイ対象で使用できるようにするためです。&lt;/p&gt;
@@ -53,27 +90,27 @@ config/deploy/staging.rb
 
 &lt;p&gt;&lt;em&gt;Capfile&lt;/em&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#777&quot;&gt;# require &#39;capistrano/rvm&#39;&lt;/span&gt;
-require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;capistrano/rbenv&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span style=&quot;color:#777&quot;&gt;# require &#39;capistrano/chruby&#39;&lt;/span&gt;
-require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;capistrano/bundler&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
-&lt;span style=&quot;color:#777&quot;&gt;# require &#39;capistrano/rails/assets&#39;&lt;/span&gt;
-&lt;span style=&quot;color:#777&quot;&gt;# require &#39;capistrano/rails/migrations&#39;&lt;/span&gt;
-&lt;span style=&quot;color:#777&quot;&gt;# require &#39;capistrano/passenger&#39;&lt;/span&gt;
+&lt;div class=&quot;language-ruby highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#777&quot;&gt;# require 'capistrano/rvm'&lt;/span&gt;
+require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;capistrano/rbenv&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+&lt;span style=&quot;color:#777&quot;&gt;# require 'capistrano/chruby'&lt;/span&gt;
+require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;capistrano/bundler&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+&lt;span style=&quot;color:#777&quot;&gt;# require 'capistrano/rails/assets'&lt;/span&gt;
+&lt;span style=&quot;color:#777&quot;&gt;# require 'capistrano/rails/migrations'&lt;/span&gt;
+&lt;span style=&quot;color:#777&quot;&gt;# require 'capistrano/passenger'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;stagingrb&quot;&gt;staging.rbの設定&lt;/h2&gt;
+&lt;h2 id=&quot;stagingrbの設定&quot;&gt;staging.rbの設定&lt;/h2&gt;
 
 &lt;p&gt;staging.rb / production.rb は、それぞれ環境用の設定になっています。
 今回はstaging.rbを使用します。&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;config/deploy/staging.rb&lt;/em&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;server &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;target-server&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#606&quot;&gt;user&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;username&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#606&quot;&gt;roles&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%w{&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;app&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;div class=&quot;language-ruby highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;server &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;target-server&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#606&quot;&gt;user&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;username&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#606&quot;&gt;roles&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%w{&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;app&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
 role &lt;span style=&quot;color:#A60&quot;&gt;:app&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;%w{&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;username@target-server&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -82,27 +119,27 @@ role &lt;span style=&quot;color:#A60&quot;&gt;:app&lt;/span&gt;, &lt;span style=
 &lt;p&gt;コメントをすべて除去しました。
 実際は参考になる記述なので、残しておいたほうがよいでしょう。&lt;/p&gt;
 
-&lt;h2 id=&quot;deployrb&quot;&gt;deploy.rbの設定&lt;/h2&gt;
+&lt;h2 id=&quot;deployrbの設定&quot;&gt;deploy.rbの設定&lt;/h2&gt;
 
 &lt;p&gt;最後にdeploy.rbですが、これは実際のデプロイ詳細を記述しています。&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;config/deploy.rb&lt;/em&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-ruby highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#777&quot;&gt;# config valid only for current version of Capistrano&lt;/span&gt;
-lock &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;3.4.0&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+lock &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;3.4.0&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
 
-set &lt;span style=&quot;color:#A60&quot;&gt;:application&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;my-app-name&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
-set &lt;span style=&quot;color:#A60&quot;&gt;:repo_url&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;git@github.org:[github username]/[github repo].git&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+set &lt;span style=&quot;color:#A60&quot;&gt;:application&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;my-app-name&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+set &lt;span style=&quot;color:#A60&quot;&gt;:repo_url&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;git@github.org:[github username]/[github repo].git&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
 
-set &lt;span style=&quot;color:#A60&quot;&gt;:deploy_to&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;/path/to/target_dir&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+set &lt;span style=&quot;color:#A60&quot;&gt;:deploy_to&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;/path/to/target_dir&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
 set &lt;span style=&quot;color:#A60&quot;&gt;:scm&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:git&lt;/span&gt;
 set &lt;span style=&quot;color:#A60&quot;&gt;:log_level&lt;/span&gt;, &lt;span style=&quot;color:#A60&quot;&gt;:debug&lt;/span&gt;
-set &lt;span style=&quot;color:#A60&quot;&gt;:linked_dirs&lt;/span&gt;, fetch(&lt;span style=&quot;color:#A60&quot;&gt;:linked_dirs&lt;/span&gt;, []).push(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;log&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;tmp/pids&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;vendor/bundle&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;)
+set &lt;span style=&quot;color:#A60&quot;&gt;:linked_dirs&lt;/span&gt;, fetch(&lt;span style=&quot;color:#A60&quot;&gt;:linked_dirs&lt;/span&gt;, []).push(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;log&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;tmp/pids&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;vendor/bundle&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;)
 set &lt;span style=&quot;color:#A60&quot;&gt;:keep_releases&lt;/span&gt;, &lt;span style=&quot;color:#00D&quot;&gt;5&lt;/span&gt;
 
 set &lt;span style=&quot;color:#A60&quot;&gt;:rbenv_path&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;/usr/local/rbenv&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-set &lt;span style=&quot;color:#A60&quot;&gt;:rbenv_ruby&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;2.2.3&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+set &lt;span style=&quot;color:#A60&quot;&gt;:rbenv_ruby&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;2.2.3&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
 
 set &lt;span style=&quot;color:#A60&quot;&gt;:bundle_path&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;vendor/bundle&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
 
@@ -123,7 +160,7 @@ namespace &lt;span style=&quot;color:#A60&quot;&gt;:deploy&lt;/span&gt; &lt;span
 
 &lt;p&gt;以下のコマンドでこの設定でのデプロイを実行します。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ bundle exec cap staging deploy
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -203,7 +240,7 @@ namespace &lt;span style=&quot;color:#A60&quot;&gt;:deploy&lt;/span&gt; &lt;span
 &lt;p&gt;暗号アルゴリズムはBlowfishですが、
 これもいくつかやり方があり、正直言って正確なところは掴みきれていない印象です。&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;暗号・復号の前提&lt;/h2&gt;
+&lt;h2 id=&quot;暗号復号の前提&quot;&gt;暗号・復号の前提&lt;/h2&gt;
 
 &lt;p&gt;Blowfishで暗号化する際、使用するのは以下のものです。&lt;/p&gt;
 
@@ -231,7 +268,7 @@ CBCでは必須になっています。&lt;/p&gt;
 &lt;p&gt;これは暗号強度に関わってくるものなので、
 ここではCBCを使用することにしました。&lt;/p&gt;
 
-&lt;h2 id=&quot;phpblowfish&quot;&gt;PHPでのBlowfish暗号化&lt;/h2&gt;
+&lt;h2 id=&quot;phpでのblowfish暗号化&quot;&gt;PHPでのBlowfish暗号化&lt;/h2&gt;
 
 &lt;p&gt;PHPで暗号化する場合、拡張モジュールMCryptを使用することが多いと思います。
 Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもできます(かなり古いですが)。&lt;/p&gt;
@@ -240,25 +277,25 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
 
 &lt;p&gt;&lt;strong&gt;encrypt.php&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-php highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;#!/usr/bin/env php
 &lt;span style=&quot;font-weight:bold;color:#666&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;define&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;PASSPHRASE&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;passphrase-test&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;);
+&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;define&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;PASSPHRASE&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;passphrase-test&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;);
 {
     &lt;span style=&quot;color:#950&quot;&gt;$opt&lt;/span&gt; = &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;getopt&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t:&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;);
 
-    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;isset&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$opt&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;])) {
+    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;isset&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$opt&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;])) {
         &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;exit&lt;/span&gt;(&lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;);
     }
 
-    &lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt; = &lt;span style=&quot;color:#950&quot;&gt;$opt&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;];
+    &lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt; = &lt;span style=&quot;color:#950&quot;&gt;$opt&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;];
     &lt;span style=&quot;color:#777&quot;&gt;// PKCS#5 Padding&lt;/span&gt;
     &lt;span style=&quot;color:#950&quot;&gt;$pkcs5_pad&lt;/span&gt; = &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;function&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$blocksize&lt;/span&gt;) {
         &lt;span style=&quot;color:#950&quot;&gt;$pad&lt;/span&gt; = &lt;span style=&quot;color:#950&quot;&gt;$blocksize&lt;/span&gt; - (&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;strlen&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt;) % &lt;span style=&quot;color:#950&quot;&gt;$blocksize&lt;/span&gt;);
         &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt; . &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;str_repeat&lt;/span&gt;(&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;chr&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$pad&lt;/span&gt;), &lt;span style=&quot;color:#950&quot;&gt;$pad&lt;/span&gt;);
     };
 
-    &lt;span style=&quot;color:#950&quot;&gt;$mc&lt;/span&gt;   = mcrypt_module_open(&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MCRYPT_BLOWFISH&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MCRYPT_MODE_CBC&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;);
+    &lt;span style=&quot;color:#950&quot;&gt;$mc&lt;/span&gt;   = mcrypt_module_open(&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MCRYPT_BLOWFISH&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;MCRYPT_MODE_CBC&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;);
     &lt;span style=&quot;color:#950&quot;&gt;$is&lt;/span&gt;   = mcrypt_enc_get_iv_size(&lt;span style=&quot;color:#950&quot;&gt;$mc&lt;/span&gt;);
     &lt;span style=&quot;color:#950&quot;&gt;$iv&lt;/span&gt;   = &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;substr&lt;/span&gt;(&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;sha1&lt;/span&gt;(&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;uniqid&lt;/span&gt;()), &lt;span style=&quot;color:#00D&quot;&gt;0&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$is&lt;/span&gt;);
     &lt;span style=&quot;color:#950&quot;&gt;$ks&lt;/span&gt;   = mcrypt_enc_get_key_size(&lt;span style=&quot;color:#950&quot;&gt;$mc&lt;/span&gt;);
@@ -267,10 +304,10 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
     &lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt; = &lt;span style=&quot;color:#950&quot;&gt;$pkcs5_pad&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$bs&lt;/span&gt;);
     mcrypt_generic_init(&lt;span style=&quot;color:#950&quot;&gt;$mc&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$key&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$iv&lt;/span&gt;);
     &lt;span style=&quot;color:#950&quot;&gt;$result&lt;/span&gt; = &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;array&lt;/span&gt;(
-        &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;encrypted&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;bin2hex&lt;/span&gt;(mcrypt_generic(&lt;span style=&quot;color:#950&quot;&gt;$mc&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt;)),
-        &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;iv&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#950&quot;&gt;$iv&lt;/span&gt;
+        &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;encrypted&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;bin2hex&lt;/span&gt;(mcrypt_generic(&lt;span style=&quot;color:#950&quot;&gt;$mc&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt;)),
+        &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;iv&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt; =&amp;gt; &lt;span style=&quot;color:#950&quot;&gt;$iv&lt;/span&gt;
     );
-    &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;printf&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;encrypted: %s&lt;/span&gt;&lt;span style=&quot;color:#b0b&quot;&gt;\n&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;iv: %s&lt;/span&gt;&lt;span style=&quot;color:#b0b&quot;&gt;\n&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$result&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;encrypted&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;], &lt;span style=&quot;color:#950&quot;&gt;$result&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;iv&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;]);
+    &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;printf&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;encrypted: %s&lt;/span&gt;&lt;span style=&quot;color:#b0b&quot;&gt;\n&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;iv: %s&lt;/span&gt;&lt;span style=&quot;color:#b0b&quot;&gt;\n&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$result&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;encrypted&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;], &lt;span style=&quot;color:#950&quot;&gt;$result&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;iv&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;]);
 }
 
 &lt;/pre&gt;&lt;/div&gt;
@@ -305,26 +342,26 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
 
 &lt;p&gt;&lt;strong&gt;encrypt_pear.php&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-php highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;#!/usr/bin/env php
 &lt;span style=&quot;font-weight:bold;color:#666&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;require_once&lt;/span&gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;vendor/autoload.php&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;;
-&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;require_once&lt;/span&gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Crypt/Blowfish.php&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;;
-&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;define&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;PASSPHRASE&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;passphrase-test&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;);
+&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;require_once&lt;/span&gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;vendor/autoload.php&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;;
+&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;require_once&lt;/span&gt; &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;Crypt/Blowfish.php&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;;
+&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;define&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;PASSPHRASE&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;passphrase-test&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;);
 {
     &lt;span style=&quot;color:#950&quot;&gt;$opt&lt;/span&gt; = &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;getopt&lt;/span&gt;(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t:&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;);
 
-    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;isset&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$opt&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;])) {
+    &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;isset&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$opt&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;])) {
         &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;exit&lt;/span&gt;(&lt;span style=&quot;color:#00D&quot;&gt;1&lt;/span&gt;);
     }
 
-    &lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt; = &lt;span style=&quot;color:#950&quot;&gt;$opt&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;];
+    &lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt; = &lt;span style=&quot;color:#950&quot;&gt;$opt&lt;/span&gt;[&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;t&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;];
     &lt;span style=&quot;color:#777&quot;&gt;// PKCS#5 Padding&lt;/span&gt;
     &lt;span style=&quot;color:#950&quot;&gt;$pkcs5_pad&lt;/span&gt; = &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;function&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$blocksize&lt;/span&gt;) {
         &lt;span style=&quot;color:#950&quot;&gt;$pad&lt;/span&gt; = &lt;span style=&quot;color:#950&quot;&gt;$blocksize&lt;/span&gt; - (&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;strlen&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt;) % &lt;span style=&quot;color:#950&quot;&gt;$blocksize&lt;/span&gt;);
         &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color:#950&quot;&gt;$text&lt;/span&gt; . &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;str_repeat&lt;/span&gt;(&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;chr&lt;/span&gt;(&lt;span style=&quot;color:#950&quot;&gt;$pad&lt;/span&gt;), &lt;span style=&quot;color:#950&quot;&gt;$pad&lt;/span&gt;);
     };
-    &lt;span style=&quot;color:#950&quot;&gt;$bw&lt;/span&gt;   = &lt;span style=&quot;color:#069&quot;&gt;Crypt_Blowfish&lt;/span&gt;::factory(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;cbc&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#069&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color:#069&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CRYPT_BLOWFISH_PHP&lt;/span&gt;);
+    &lt;span style=&quot;color:#950&quot;&gt;$bw&lt;/span&gt;   = &lt;span style=&quot;color:#069&quot;&gt;Crypt_Blowfish&lt;/span&gt;::factory(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;cbc&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span style=&quot;color:#069&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color:#069&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;CRYPT_BLOWFISH_PHP&lt;/span&gt;);
     &lt;span style=&quot;color:#950&quot;&gt;$is&lt;/span&gt;   = &lt;span style=&quot;color:#950&quot;&gt;$bw&lt;/span&gt;-&amp;gt;getIVSize();
     &lt;span style=&quot;color:#950&quot;&gt;$iv&lt;/span&gt;   = &lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;substr&lt;/span&gt;(&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;sha1&lt;/span&gt;(&lt;span style=&quot;color:#369;font-weight:bold&quot;&gt;uniqid&lt;/span&gt;()), &lt;span style=&quot;color:#00D&quot;&gt;0&lt;/span&gt;, &lt;span style=&quot;color:#950&quot;&gt;$is&lt;/span&gt;);
     &lt;span style=&quot;color:#950&quot;&gt;$ks&lt;/span&gt;   = &lt;span style=&quot;color:#950&quot;&gt;$bw&lt;/span&gt;-&amp;gt;getMaxKeySize();
@@ -345,7 +382,7 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
 
 &lt;p&gt;&lt;strong&gt;composer.json&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-json highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;{
     &lt;span style=&quot;color:#606&quot;&gt;&lt;span style=&quot;color:#404&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span&gt;repositories&lt;/span&gt;&lt;span style=&quot;color:#404&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;: [
         {
@@ -363,7 +400,7 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;rubyblowfish&quot;&gt;rubyでのBlowfish復号&lt;/h2&gt;
+&lt;h2 id=&quot;rubyでのblowfish復号&quot;&gt;rubyでのBlowfish復号&lt;/h2&gt;
 
 &lt;p&gt;rubyの方もlibmcryptを使用できるgemがありますが、
 今回はgemをインストールせずにできるかどうかを試してみました。&lt;/p&gt;
@@ -372,21 +409,21 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
 
 &lt;p&gt;&lt;strong&gt;decrypt.rb&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-ruby highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#34b&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
 &lt;span style=&quot;color:#777&quot;&gt;# coding: utf-8&lt;/span&gt;
-require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;openssl&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
-require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;optparse&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;openssl&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+require &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;optparse&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
 
-&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;PASSPHRASE&lt;/span&gt; = &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;passphrase-test&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;PASSPHRASE&lt;/span&gt; = &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;passphrase-test&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
 &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;KEY_LENGTH&lt;/span&gt; = &lt;span style=&quot;color:#00D&quot;&gt;56&lt;/span&gt;
 
 encrypted = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
 iv = &lt;span style=&quot;color:#069&quot;&gt;nil&lt;/span&gt;
 
 &lt;span style=&quot;color:#036;font-weight:bold&quot;&gt;OptionParser&lt;/span&gt;.new &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;do&lt;/span&gt; |opt|
-  opt.on(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;-e xxx&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;) {|var| encrypted = var }
-  opt.on(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;-i xxx&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;) {|var| iv = var }
+  opt.on(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;-e xxx&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;) {|var| encrypted = var }
+  opt.on(&lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color:#D20&quot;&gt;-i xxx&lt;/span&gt;&lt;span style=&quot;color:#710&quot;&gt;'&lt;/span&gt;&lt;/span&gt;) {|var| iv = var }
   opt.parse! &lt;span style=&quot;color:#069&quot;&gt;ARGV&lt;/span&gt;
 &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;end&lt;/span&gt;
 
@@ -452,7 +489,7 @@ opensslを使用した際、デフォルト値が16になっており、
 &lt;p&gt;Play Frameworkを触っていて、やはりScala言語自体に対する理解が足りなすぎることに直面した、
 というのが実際のところです。&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;入門書について&lt;/h2&gt;
+&lt;h2 id=&quot;入門書について&quot;&gt;入門書について&lt;/h2&gt;
 
 &lt;p&gt;Scalaの書籍はあまり多くないですが、今だとおそらく以下の本をまず読む人が多いと思います。&lt;/p&gt;
 
@@ -466,7 +503,7 @@ opensslを使用した際、デフォルト値が16になっており、
 
 &lt;p&gt;とにかく、これを一回通読したあとで、プログラムの作成に臨んでいます。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;環境作成&lt;/h2&gt;
+&lt;h2 id=&quot;環境作成&quot;&gt;環境作成&lt;/h2&gt;
 
 &lt;p&gt;activatorでもよかったのですが、構成についても理解が必要だと思いましたので、
 sbtenvを使用します。&lt;/p&gt;
@@ -475,10 +512,10 @@ sbtenvを使用します。&lt;/p&gt;
 
 &lt;p&gt;インストールは大抵の*envとほとんど同じです。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ git clone git://github.com/mazgi/sbtenv.git ~/.sbtenv
-$ echo &#39;export PATH=&amp;quot;${HOME}/.sbtenv/bin:${PATH}&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc
-$ echo &#39;eval &amp;quot;$(sbtenv init -)&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc
+$ echo 'export PATH=&amp;quot;${HOME}/.sbtenv/bin:${PATH}&amp;quot;' &amp;gt;&amp;gt; ~/.bashrc
+$ echo 'eval &amp;quot;$(sbtenv init -)&amp;quot;' &amp;gt;&amp;gt; ~/.bashrc
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -489,7 +526,7 @@ $ echo &#39;eval &amp;quot;$(sbtenv init -)&amp;quot;&#39; &amp;gt;&amp;gt; ~/.b
 
 &lt;p&gt;まずはディレクトリ構成を準備します。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ mkdir crawler-scala ; cd $_
 $ mkdir lib
 $ mkdir -p src/main/scala
@@ -497,7 +534,7 @@ $ mkdir -p src/main/scala
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;web&quot;&gt;Webページの取得&lt;/h3&gt;
+&lt;h3 id=&quot;webページの取得&quot;&gt;Webページの取得&lt;/h3&gt;
 
 &lt;p&gt;Dispatchというライブラリがあるようですが、どうも使用方法が判然としないので、
 ひとまずApache HttpClientを使用します。&lt;/p&gt;
@@ -519,7 +556,7 @@ $ mkdir -p src/main/scala
 
 &lt;p&gt;&lt;strong&gt;build.sbt&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-scala highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;libraryDependencies ++= Seq(
 &amp;quot;com.typesafe.scala-logging&amp;quot; %% &amp;quot;scala-logging&amp;quot; % &amp;quot;3.1.0&amp;quot;,
 &amp;quot;org.apache.httpcomponents&amp;quot; % &amp;quot;httpclient&amp;quot; % &amp;quot;4.5.1&amp;quot;
@@ -540,7 +577,7 @@ $ mkdir -p src/main/scala
 
 &lt;p&gt;&lt;strong&gt;main/scala/GetPage.scala&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-scala highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;import org.apache.http._
 import org.apache.http.impl.client.HttpClients
 import org.apache.http.client.methods.HttpGet
@@ -576,8 +613,8 @@ result
 &lt;p&gt;sbtプロジェクトを実行する際、通常は’sbt run’で実行できますが、
 引数がある場合は、以下のようにクォートしないと正常に認識できません。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ sbt &#39;run http://www.yahoo.co.jp/&#39;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ sbt 'run http://www.yahoo.co.jp/'
 ...
 &amp;lt;/html&amp;gt;
 
@@ -606,7 +643,7 @@ $
 
 &lt;p&gt;単純に、リクエストした内容をDBに登録するフローを試してみます。&lt;/p&gt;
 
-&lt;h2 id=&quot;routing&quot;&gt;routingについて&lt;/h2&gt;
+&lt;h2 id=&quot;routingについて&quot;&gt;routingについて&lt;/h2&gt;
 
 &lt;p&gt;まずはルーティングについて確認しておきましょう。&lt;/p&gt;
 
@@ -619,7 +656,7 @@ $
 
 &lt;p&gt;Actionの方にも定義を追加します。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-scala highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;  def register(id: Long, name: String) = Action {
     Ok(views.html.register(id, name))
   }
@@ -633,9 +670,9 @@ $
 
 &lt;p&gt;型に合わないリクエスト(/register/abc/1 など)では、Bad Requestになります。&lt;/p&gt;
 
-&lt;h2 id=&quot;db&quot;&gt;DB接続&lt;/h2&gt;
+&lt;h2 id=&quot;db接続&quot;&gt;DB接続&lt;/h2&gt;
 
-&lt;h3 id=&quot;mysql-connector-java-&quot;&gt;mysql-connector-java の追加&lt;/h3&gt;
+&lt;h3 id=&quot;mysql-connector-java-の追加&quot;&gt;mysql-connector-java の追加&lt;/h3&gt;
 
 &lt;p&gt;build.sbtに設定を追加します。&lt;/p&gt;
 
@@ -646,13 +683,13 @@ $
 
 &lt;p&gt;ここで一応activatorを再起動しました。&lt;/p&gt;
 
-&lt;h3 id=&quot;insert&quot;&gt;INSERT文実行&lt;/h3&gt;
+&lt;h3 id=&quot;insert文実行&quot;&gt;INSERT文実行&lt;/h3&gt;
 
 &lt;p&gt;簡単なINSERT文を実行してみます。&lt;/p&gt;
 
 &lt;p&gt;テーブルは以下のように用意しています。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-sql highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#B06;font-weight:bold&quot;&gt;CREATE&lt;/span&gt; &lt;span style=&quot;color:#339;font-weight:bold&quot;&gt;TABLE&lt;/span&gt; registers (
 id &lt;span style=&quot;color:#0a8;font-weight:bold&quot;&gt;bigint&lt;/span&gt; &lt;span style=&quot;color:#088;font-weight:bold&quot;&gt;PRIMARY&lt;/span&gt; &lt;span style=&quot;color:#339;font-weight:bold&quot;&gt;KEY&lt;/span&gt; &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;NOT&lt;/span&gt; &lt;span style=&quot;color:#069&quot;&gt;NULL&lt;/span&gt;,
 name &lt;span style=&quot;color:#0a8;font-weight:bold&quot;&gt;varchar&lt;/span&gt;(&lt;span style=&quot;color:#00D&quot;&gt;512&lt;/span&gt;) &lt;span style=&quot;color:#080;font-weight:bold&quot;&gt;NOT&lt;/span&gt; &lt;span style=&quot;color:#069&quot;&gt;NULL&lt;/span&gt;,
@@ -666,7 +703,7 @@ created_at &lt;span style=&quot;color:#0a8;font-weight:bold&quot;&gt;datetime&lt
 
 &lt;p&gt;&lt;strong&gt;app/controllers/Application.scala&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-scala highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;import play.api.Play.current
 import play.api.db._
 
@@ -719,12 +756,12 @@ name: 東京都
 
 &lt;p&gt;idはPRIMARY KEYですので、リロードすると当然ですがDB側でエラーとなります。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry &#39;1&#39; for key &#39;PRIMARY&#39;
+&lt;pre&gt;&lt;code&gt;com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '1' for key 'PRIMARY'
 ID: 1
 name: 東京都
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;migrationorm&quot;&gt;Migration/ORMについて&lt;/h3&gt;
+&lt;h3 id=&quot;migrationormについて&quot;&gt;Migration/ORMについて&lt;/h3&gt;
 
 &lt;p&gt;migrationについては、evolutionsというものがあるようですが、
 日本語のドキュメントは前のバージョンなので、少し内容が違っているようです。&lt;/p&gt;
@@ -785,7 +822,7 @@ DROP TABLE registers ;
 
 &lt;p&gt;今度はレコードを登録する部分を変更してみます。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-scala highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;package controllers
 
 import play.api.Play.current
@@ -803,7 +840,7 @@ class Application extends Controller {
       DB.withConnection { implicit c =&amp;gt;
         val result = SQL(
           &amp;quot;INSERT INTO registers (id, name, created_at) VALUES({id}, {name}, CURRENT_TIMESTAMP) ; &amp;quot;
-        ).on(&#39;id -&amp;gt; id, &#39;name -&amp;gt; name).executeInsert()
+        ).on('id -&amp;gt; id, 'name -&amp;gt; name).executeInsert()
         result_str = &amp;quot;Success.&amp;quot;
       }
     } catch {
@@ -842,7 +879,7 @@ class Application extends Controller {
 &lt;p&gt;チュートリアルはとても充実していて、少しバージョンが古いですが日本語訳もありますので、
 真面目にやりたい人は上記を見ることをおすすめします。&lt;/p&gt;
 
-&lt;h2 id=&quot;play-framework&quot;&gt;Play Frameworkについて&lt;/h2&gt;
+&lt;h2 id=&quot;play-frameworkについて&quot;&gt;Play Frameworkについて&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;scala / java 製&lt;/li&gt;
@@ -853,29 +890,29 @@ class Application extends Controller {
 
 &lt;p&gt;今のところはこれくらいの理解しかありません。&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;インストール&lt;/h2&gt;
+&lt;h2 id=&quot;インストール&quot;&gt;インストール&lt;/h2&gt;
 
 &lt;p&gt;色々方法があるようですが、以下に書いているTypesafe Activatorというものを使用する方法を試します。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.playframework.com/documentation/ja/2.3.x/Installing&quot;&gt;Installing&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ sudo aptitude -y install openjdk-8-jdk
 ...
 $ wget https://downloads.typesafe.com/typesafe-activator/1.3.6/typesafe-activator-1.3.6.zip
 $ unzip typesafe-activator-1.3.6.zip
 $ mv activator-dist-1.3.6 ~/
-$ echo &#39;PATH=$HOME/activator-dist-1.3.6:$PATH&#39; &amp;gt;&amp;gt; ~/.bashrc
+$ echo 'PATH=$HOME/activator-dist-1.3.6:$PATH' &amp;gt;&amp;gt; ~/.bashrc
 $ $SHELL -l
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;project&quot;&gt;project作成&lt;/h2&gt;
+&lt;h2 id=&quot;project作成&quot;&gt;project作成&lt;/h2&gt;
 
 &lt;p&gt;このあたりはrailsなどと同じような雰囲気です。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ activator new test-app play-scala
 ...
 $ cd test-app
@@ -894,7 +931,7 @@ $ ./activator run
 
 &lt;p&gt;&lt;strong&gt;app/controllers/Application.scala&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-scala highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;package controllers
 
 import play.api._
@@ -919,7 +956,7 @@ class Application extends Controller {
 
 &lt;p&gt;&lt;strong&gt;app/views/first.scala.html&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-html highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;@(message: String)
 
 &lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;@message&lt;span style=&quot;color:#070;font-weight:bold&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
@@ -942,7 +979,7 @@ GET     /first                      controllers.Application.first
 GET     /assets/*file               controllers.Assets.versioned(path=&quot;/public&quot;, file: Asset)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;テンプレート変数&lt;/h2&gt;
+&lt;h2 id=&quot;テンプレート変数&quot;&gt;テンプレート変数&lt;/h2&gt;
 
 &lt;p&gt;こういうのは通常、Modelや自前のオブジェクトなどを渡すのがよくあるパターンなのでしょうか。&lt;/p&gt;
 
@@ -953,7 +990,7 @@ GET     /assets/*file               controllers.Assets.versioned(path=&quot;/pub
 
 &lt;p&gt;&lt;strong&gt;app/controllers/Application.scala&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-scala highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;package controllers
 
 import play.api._
@@ -982,7 +1019,7 @@ class Application extends Controller {
 
 &lt;p&gt;&lt;strong&gt;app/views/first.scala.html&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-html highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;(
 message: String,
 messages: Map[String, String],
@@ -1021,11 +1058,11 @@ num_list: Seq[Int]
 物理サーバや各種Virtual Machineにも流用することを考えると、
 ansibleやchefなどの利用は有効だと思います。&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;事前準備&lt;/h2&gt;
+&lt;h2 id=&quot;事前準備&quot;&gt;事前準備&lt;/h2&gt;
 
 &lt;p&gt;最初に前回作成したコンテナを起動して、IPアドレスを控えておきます。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ docker start srv1
 srv1
 $ docker ps -a
@@ -1050,13 +1087,13 @@ $ docker inspect srv1 | grep IPAddress
   &lt;li&gt;emacs (事前に必要なパッケージをインストールして、ソースをビルド)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;ansible&quot;&gt;ansibleのインストール&lt;/h3&gt;
+&lt;h3 id=&quot;ansibleのインストール&quot;&gt;ansibleのインストール&lt;/h3&gt;
 
 &lt;p&gt;ansibleのインストールはaptitudeで行います。&lt;/p&gt;
 
 &lt;p&gt;インストールの確認も兼ねて、疎通確認のコマンドを実行してみます。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ sudo aptitude install ansible
 ...
 $ echo 172.17.0.1 &amp;gt; host             
@@ -1071,7 +1108,7 @@ $ ansible -i host -u docker 172.17.0.1 -m ping
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;mysql&quot;&gt;実例 - mysqlのインストール&lt;/h2&gt;
+&lt;h2 id=&quot;実例---mysqlのインストール&quot;&gt;実例 - mysqlのインストール&lt;/h2&gt;
 
 &lt;p&gt;mysqlはaptitudeでインストールします。&lt;/p&gt;
 
@@ -1079,7 +1116,7 @@ $ ansible -i host -u docker 172.17.0.1 -m ping
 
 &lt;p&gt;パッケージ情報のアップデートを行ってからインストールするため、通常では実行するコマンドは以下のようになります。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ sudo aptitude update
 $ sudo aptitude install mysql-server mysql-client libmysqlclient-dev
 &lt;/pre&gt;&lt;/div&gt;
@@ -1090,7 +1127,7 @@ $ sudo aptitude install mysql-server mysql-client libmysqlclient-dev
 
 &lt;p&gt;ansibleでは、このYAMLファイルのことを’playbook’と呼んでいるようで、実行の際のコマンドは’ansible-playbook’になります。&lt;/p&gt;
 
-&lt;h3 id=&quot;playbook&quot;&gt;playbookの記述&lt;/h3&gt;
+&lt;h3 id=&quot;playbookの記述&quot;&gt;playbookの記述&lt;/h3&gt;
 
 &lt;p&gt;最低限必要な設定は概ね以下のとおりです。&lt;/p&gt;
 
@@ -1105,17 +1142,17 @@ $ sudo aptitude install mysql-server mysql-client libmysqlclient-dev
 
 &lt;p&gt;‘command: ‘ で実行するコマンドを設定します。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;パスワードの自動設定&lt;/h3&gt;
+&lt;h3 id=&quot;パスワードの自動設定&quot;&gt;パスワードの自動設定&lt;/h3&gt;
 
 &lt;p&gt;mysql-serverをインストールする際、rootユーザのパスワード入力を要求されますが、
 そのままではそこでインストール処理がストップします。&lt;/p&gt;
 
-&lt;p&gt;~~この問題に対しては、かなり強引ですが、ひとまず仮パスワードを予め設定しておき、
-入力しなくて済むようにすることで回避します。~~&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;この問題に対しては、かなり強引ですが、ひとまず仮パスワードを予め設定しておき、
+入力しなくて済むようにすることで回避します。&lt;/del&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
-  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ sudo debconf-set-selections &amp;lt;&amp;lt;&amp;lt; &#39;mysql-server-5.6 mysql-server/root_password password root&#39;
-$ sudo debconf-set-selections &amp;lt;&amp;lt;&amp;lt; &#39;mysql-server-5.6 mysql-server/root_password_again password root&#39;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ sudo debconf-set-selections &amp;lt;&amp;lt;&amp;lt; 'mysql-server-5.6 mysql-server/root_password password root'
+$ sudo debconf-set-selections &amp;lt;&amp;lt;&amp;lt; 'mysql-server-5.6 mysql-server/root_password_again password root'
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1133,7 +1170,7 @@ chefでのインストール例で使用しているものはそのままでは�
 
 &lt;p&gt;&lt;strong&gt;mysql.yml&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-yaml highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#f8f;background:#505&quot;&gt;&lt;span style=&quot;color:#f4f&quot;&gt;---&lt;/span&gt;&lt;/span&gt;
 - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;hosts: 172.17.0.1&lt;/span&gt;&lt;/span&gt;
   &lt;span style=&quot;color:#606&quot;&gt;sudo&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;true&lt;/span&gt;&lt;/span&gt;
@@ -1146,7 +1183,7 @@ chefでのインストール例で使用しているものはそのままでは�
     - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: install mysql&lt;/span&gt;&lt;/span&gt;
       &lt;span style=&quot;color:#606&quot;&gt;command&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;aptitude -y install mysql-server-5.6 mysql-client-5.6&lt;/span&gt;&lt;/span&gt;
       &lt;span style=&quot;color:#606&quot;&gt;environment&lt;/span&gt;:
-        &lt;span style=&quot;color:#606&quot;&gt;DEBIAN_FRONTEND&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;&#39;noninteractive&#39;&lt;/span&gt;&lt;/span&gt;
+        &lt;span style=&quot;color:#606&quot;&gt;DEBIAN_FRONTEND&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;'noninteractive'&lt;/span&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1155,7 +1192,7 @@ chefでのインストール例で使用しているものはそのままでは�
 
 &lt;p&gt;-i オプションで指定するhostファイルは疎通確認の際に使用したものです。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ ansible-playbook -i host mysql.yml
 PLAY [172.17.0.1] *************************************************************
 ...
@@ -1167,18 +1204,18 @@ PLAY RECAP ********************************************************************
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;rbenv&quot;&gt;実例 - rbenvのインストールと設定&lt;/h2&gt;
+&lt;h2 id=&quot;実例---rbenvのインストールと設定&quot;&gt;実例 - rbenvのインストールと設定&lt;/h2&gt;
 
 &lt;p&gt;mysqlはaptitudeでインストールしましたが、rbenvについてはgit cloneでインストールしたあと、
 任意のバージョンのrubyをインストールします。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;変数の定義&lt;/h3&gt;
+&lt;h3 id=&quot;変数の定義&quot;&gt;変数の定義&lt;/h3&gt;
 
 &lt;p&gt;playbook内で使用できる変数を定義できます。&lt;/p&gt;
 
 &lt;p&gt;以下のような記述です。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-yaml highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;  &lt;span style=&quot;color:#606&quot;&gt;vars&lt;/span&gt;:
     &lt;span style=&quot;color:#606&quot;&gt;ruby_ver&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;2.2.3&lt;/span&gt;&lt;/span&gt;
     &lt;span style=&quot;color:#606&quot;&gt;target&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;/home/docker/.rbenv&lt;/span&gt;&lt;/span&gt;
@@ -1188,7 +1225,7 @@ PLAY RECAP ********************************************************************
 
 &lt;p&gt;先ほどのmysqlの場合と同じ要領で設定を行います。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-yaml highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#f8f;background:#505&quot;&gt;&lt;span style=&quot;color:#f4f&quot;&gt;---&lt;/span&gt;&lt;/span&gt;
 - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;hosts: 172.17.0.1&lt;/span&gt;&lt;/span&gt;
   &lt;span style=&quot;color:#606&quot;&gt;user&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;docker&lt;/span&gt;&lt;/span&gt;
@@ -1217,9 +1254,9 @@ PLAY RECAP ********************************************************************
     - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: clone ruby-build&lt;/span&gt;&lt;/span&gt;
       &lt;span style=&quot;color:#606&quot;&gt;command&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;test -e /plugins/ruby-build || git clone https://github.com/sstephenson/ruby-build.git /plugins/ruby-build&lt;/span&gt;&lt;/span&gt;
     - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: add PATH&lt;/span&gt;&lt;/span&gt;
-      &lt;span style=&quot;color:#606&quot;&gt;command&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;touch ~/.bashrc ; echo &#39;export PATH=&amp;quot;$HOME/.rbenv/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc&lt;/span&gt;&lt;/span&gt;
+      &lt;span style=&quot;color:#606&quot;&gt;command&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;touch ~/.bashrc ; echo 'export PATH=&amp;quot;$HOME/.rbenv/bin:$PATH&amp;quot;' &amp;gt;&amp;gt; ~/.bashrc&lt;/span&gt;&lt;/span&gt;
     - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: add eval&lt;/span&gt;&lt;/span&gt;
-      &lt;span style=&quot;color:#606&quot;&gt;command&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;echo &#39;eval &amp;quot;$(rbenv init -)&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc&lt;/span&gt;&lt;/span&gt;
+      &lt;span style=&quot;color:#606&quot;&gt;command&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;echo 'eval &amp;quot;$(rbenv init -)&amp;quot;' &amp;gt;&amp;gt; ~/.bashrc&lt;/span&gt;&lt;/span&gt;
     - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: reload bashrc&lt;/span&gt;&lt;/span&gt;
       &lt;span style=&quot;color:#606&quot;&gt;command&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;source /home/docker/.bashrc&lt;/span&gt;&lt;/span&gt;
     - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: install ruby&lt;/span&gt;&lt;/span&gt;
@@ -1230,7 +1267,7 @@ PLAY RECAP ********************************************************************
 
 &lt;p&gt;とりあえずこのような感じで実行しましたが、エラーが発生しました。&lt;/p&gt;
 
-&lt;h3 id=&quot;dns&quot;&gt;DNS設定&lt;/h3&gt;
+&lt;h3 id=&quot;dns設定&quot;&gt;DNS設定&lt;/h3&gt;
 
 &lt;p&gt;rbenvはdockerユーザのホームディレクトリにインストールするため、sudo設定を行っていません。&lt;/p&gt;
 
@@ -1240,7 +1277,7 @@ PLAY RECAP ********************************************************************
 
 &lt;p&gt;&lt;strong&gt;/etc/default/docker&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-text highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;DOCKER_OPTS=&amp;quot;--dns 8.8.8.8 -g /path/to/docker&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1250,16 +1287,16 @@ PLAY RECAP ********************************************************************
   &lt;li&gt;-g /path/to/dockerはディレクトリを変更したためで、通常は不要です。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;section-3&quot;&gt;ディレクトリが存在する場合は実行しない&lt;/h3&gt;
+&lt;h3 id=&quot;ディレクトリが存在する場合は実行しない&quot;&gt;ディレクトリが存在する場合は実行しない&lt;/h3&gt;
 
 &lt;p&gt;git cloneはclone対象ディレクトリがある場合はエラーになります。&lt;/p&gt;
 
 &lt;p&gt;存在確認を行って、存在する場合は実行しないコマンドにしたつもりですが、
 commandの場合はこの記述ではダメで、ansibleの機能で制御する必要があるようです。&lt;/p&gt;
 
-&lt;p&gt;~~when: 1 == result というような記述で、
+&lt;p&gt;&lt;del&gt;when: 1 == result というような記述で、
 あらかじめ存在確認のコマンド(test -e など)で結果を保存しておき、
-存在確認の結果で実行制御できるようです。~~&lt;/p&gt;
+存在確認の結果で実行制御できるようです。&lt;/del&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;後で動かしてみると、これもダメみたいでした。&lt;/strong&gt;&lt;/p&gt;
 
@@ -1267,7 +1304,7 @@ commandの場合はこの記述ではダメで、ansibleの機能で制御する
 
 &lt;p&gt;&lt;strong&gt;stat: は指定したpathの状態を取得できるもので、今回は存在確認ができれば良いので、以下のようにしています。&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-yaml highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;    - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;stat: path=&lt;/span&gt;&lt;/span&gt;
       &lt;span style=&quot;color:#606&quot;&gt;register&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;rbenv&lt;/span&gt;&lt;/span&gt;
     - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: clone rbenv&lt;/span&gt;&lt;/span&gt;
@@ -1277,11 +1314,11 @@ commandの場合はこの記述ではダメで、ansibleの機能で制御する
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;ファイルをコピーする&lt;/h3&gt;
+&lt;h3 id=&quot;ファイルをコピーする&quot;&gt;ファイルをコピーする&lt;/h3&gt;
 
 &lt;p&gt;copy: src=xxx dest=xxx というフォーマットで実現できます&lt;/p&gt;
 
-&lt;h3 id=&quot;section-5&quot;&gt;環境変数の追加と反映について&lt;/h3&gt;
+&lt;h3 id=&quot;環境変数の追加と反映について&quot;&gt;環境変数の追加と反映について&lt;/h3&gt;
 
 &lt;p&gt;.bashrcに追加した環境変数の反映は、通常ではsource等で行いますが、
 ansibleで追加したあとはそのままでは反映できないようです。&lt;/p&gt;
@@ -1299,7 +1336,7 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 &lt;p&gt;&lt;strong&gt;rbenv.yml&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-yaml highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#f8f;background:#505&quot;&gt;&lt;span style=&quot;color:#f4f&quot;&gt;---&lt;/span&gt;&lt;/span&gt;
 - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;hosts: 172.17.0.1&lt;/span&gt;&lt;/span&gt;
   &lt;span style=&quot;color:#606&quot;&gt;user&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;docker&lt;/span&gt;&lt;/span&gt;
@@ -1323,7 +1360,7 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
       &lt;span style=&quot;color:#606&quot;&gt;when&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;not ruby_build.stat.exists&lt;/span&gt;&lt;/span&gt;
     - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;command: touch ~/.bashrc&lt;/span&gt;&lt;/span&gt;
     - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: add PATH&lt;/span&gt;&lt;/span&gt;
-      &lt;span style=&quot;color:#606&quot;&gt;shell&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;echo &#39;export PATH=&amp;quot;$HOME/.rbenv/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc &amp;amp;&amp;amp; echo &#39;eval &amp;quot;$(rbenv init -)&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc&lt;/span&gt;&lt;/span&gt;
+      &lt;span style=&quot;color:#606&quot;&gt;shell&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;echo 'export PATH=&amp;quot;$HOME/.rbenv/bin:$PATH&amp;quot;' &amp;gt;&amp;gt; ~/.bashrc &amp;amp;&amp;amp; echo 'eval &amp;quot;$(rbenv init -)&amp;quot;' &amp;gt;&amp;gt; ~/.bashrc&lt;/span&gt;&lt;/span&gt;
     - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: install ruby&lt;/span&gt;&lt;/span&gt;
       &lt;span style=&quot;color:#606&quot;&gt;shell&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;( init -);  install -s  ;  rehash ;   global &lt;/span&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -1332,31 +1369,31 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;emacs&quot;&gt;実例 - emacsのインストール&lt;/h2&gt;
+&lt;h2 id=&quot;実例---emacsのインストール&quot;&gt;実例 - emacsのインストール&lt;/h2&gt;
 
 &lt;p&gt;今度は、emacsをソースコードからビルド＆インストールします。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-6&quot;&gt;ファイルのダウンロード&lt;/h3&gt;
+&lt;h3 id=&quot;ファイルのダウンロード&quot;&gt;ファイルのダウンロード&lt;/h3&gt;
 
 &lt;p&gt;ansibleにはファイルをダウンロードする機能があります。&lt;/p&gt;
 
 &lt;p&gt;以下のように記述することで、ネット上からファイルをダウンロードできます。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-yaml highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;    - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: get emacs src&lt;/span&gt;&lt;/span&gt;
       &lt;span style=&quot;color:#606&quot;&gt;get_url&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;url=http://ftp.jaist.ac.jp/pub/GNU/emacs/emacs-.tar.xz dest=&lt;/span&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-7&quot;&gt;ディレクトリの変更&lt;/h3&gt;
+&lt;h3 id=&quot;ディレクトリの変更&quot;&gt;ディレクトリの変更&lt;/h3&gt;
 
 &lt;p&gt;tar.gzなどをダウンロードしてビルドする際、展開したディレクトリに移動する必要があります。&lt;/p&gt;
 
 &lt;p&gt;ansibleのタスクは、前のタスクの状態を引き継がないようになっているようなので、
 カレントディレクトリの変更を明示する必要があります。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-yaml highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;    - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;name: make emacs&lt;/span&gt;&lt;/span&gt;
       &lt;span style=&quot;color:#606&quot;&gt;command&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;make chdir=/emacs-&lt;/span&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -1368,7 +1405,7 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 &lt;p&gt;&lt;strong&gt;emacs.yml&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-yaml highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#f8f;background:#505&quot;&gt;&lt;span style=&quot;color:#f4f&quot;&gt;---&lt;/span&gt;&lt;/span&gt;
 - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;hosts: 172.17.0.1&lt;/span&gt;&lt;/span&gt;
   &lt;span style=&quot;color:#606&quot;&gt;sudo&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;true&lt;/span&gt;&lt;/span&gt;
@@ -1409,7 +1446,7 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;include&quot;&gt;includeについて&lt;/h2&gt;
+&lt;h2 id=&quot;includeについて&quot;&gt;includeについて&lt;/h2&gt;
 
 &lt;p&gt;include: を使用することで、playbook内から他のplaybookを呼び出すことができます。&lt;/p&gt;
 
@@ -1423,7 +1460,7 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 &lt;p&gt;&lt;strong&gt;srv1.yml&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-yaml highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span style=&quot;color:#f8f;background:#505&quot;&gt;&lt;span style=&quot;color:#f4f&quot;&gt;---&lt;/span&gt;&lt;/span&gt;
 - &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;hosts: 172.17.0.1&lt;/span&gt;&lt;/span&gt;
   &lt;span style=&quot;color:#606&quot;&gt;sudo&lt;/span&gt;: &lt;span style=&quot;background-color:hsla(0,100%,50%,0.05)&quot;&gt;&lt;span style=&quot;color:#D20&quot;&gt;true&lt;/span&gt;&lt;/span&gt;
@@ -1453,7 +1490,7 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 &lt;p&gt;&amp;lt;&amp;lt;http://lzone.de/cheat-sheet/Docker&amp;gt;&amp;gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-text highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;FROM ubuntu:vivid
 RUN apt-get update
 RUN apt-get -y install git python openssh-server
@@ -1465,7 +1502,7 @@ ADD authorized_keys /home/docker/.ssh/
 RUN chmod 600 /home/docker/.ssh/authorized_keys
 RUN chown -R docker:docker /home/docker/.ssh
 RUN mkdir /var/run/sshd
-RUN echo &#39;docker ALL=(ALL:ALL) NOPASSWD:ALL&#39; &amp;gt;&amp;gt; /etc/sudoers
+RUN echo 'docker ALL=(ALL:ALL) NOPASSWD:ALL' &amp;gt;&amp;gt; /etc/sudoers
 CMD [&amp;quot;/usr/sbin/sshd&amp;quot;, &amp;quot;-D&amp;quot;]
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1496,7 +1533,7 @@ CMD [&amp;quot;/usr/sbin/sshd&amp;quot;, &amp;quot;-D&amp;quot;]
 
 &lt;p&gt;この状態でまずは実行してみます。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ docker build -t ubuntu-base .
 ...
 $ docker images
@@ -1511,7 +1548,7 @@ ubuntu                  vivid               013f3d01d247        6 days ago      
 
 &lt;p&gt;それでは、作成したイメージを使用してコンテナを起動してみます。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;div class=&quot;language-bash highlighter-coderay&quot;&gt;&lt;div class=&quot;CodeRay&quot;&gt;
   &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;$ docker run -t -i --name srv1 -d croissant/ubuntu-base
 0211f0f72f4b2451ec07892c44d8c9c38c93f1496b3e11fda9cddaa8d553c45c
 $ docker inspect srv1 | grep IPAddress
@@ -1519,10 +1556,10 @@ $ docker inspect srv1 | grep IPAddress
 $ ssh docker@172.17.0.65
 $ docker run -t -i --name srv1 -d croissant/ubuntu-base
 0211f0f72f4b2451ec07892c44d8c9c38c93f1496b3e11fda9cddaa8d553c45c
-The authenticity of host &#39;172.17.0.65 (172.17.0.65)&#39; can&#39;t be established.
+The authenticity of host '172.17.0.65 (172.17.0.65)' can't be established.
 ECDSA key fingerprint is 53:53:1b:28:cc:6b:7f:76:3a:d9:10:74:0b:c1:0d:23.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added &#39;172.17.0.65&#39; (ECDSA) to the list of known hosts.
+Warning: Permanently added '172.17.0.65' (ECDSA) to the list of known hosts.
 Welcome to Ubuntu 15.04 (GNU/Linux 3.16.0-4-amd64 x86_64)
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1563,7 +1600,7 @@ Welcome to Ubuntu 15.04 (GNU/Linux 3.16.0-4-amd64 x86_64)
 
 &lt;p&gt;また、パッケージ名は’docker.io’になっており、’docker’は全く別のものです。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ sudo echo &#39;deb http://http.debian.net/debian jessie-backports main&#39; &amp;gt;&amp;gt; /etc/apt/sources.list
+&lt;pre&gt;&lt;code&gt;$ sudo echo 'deb http://http.debian.net/debian jessie-backports main' &amp;gt;&amp;gt; /etc/apt/sources.list
 $ sudo aptitude update ; sudo aptitude install docker.io
 &lt;/code&gt;&lt;/pre&gt;
 

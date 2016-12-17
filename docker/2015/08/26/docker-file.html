@@ -23,8 +23,8 @@
 
 
     
-    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1454113276" rel="stylesheet">
-    <link href="/assets/css/style.css?1454113276" rel="stylesheet">
+    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1481986637" rel="stylesheet">
+    <link href="/assets/css/style.css?1481986637" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="/assets/themes/bootstrap/resources/respond/Respond.min.js"></script>
     <![endif]-->
@@ -144,7 +144,7 @@
 
 <p>&lt;&lt;http://lzone.de/cheat-sheet/Docker&gt;&gt;</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-text highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>FROM ubuntu:vivid
 RUN apt-get update
 RUN apt-get -y install git python openssh-server
@@ -187,7 +187,7 @@ CMD [&quot;/usr/sbin/sshd&quot;, &quot;-D&quot;]
 
 <p>この状態でまずは実行してみます。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ docker build -t ubuntu-base .
 ...
 $ docker images
@@ -202,7 +202,7 @@ ubuntu                  vivid               013f3d01d247        6 days ago      
 
 <p>それでは、作成したイメージを使用してコンテナを起動してみます。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ docker run -t -i --name srv1 -d croissant/ubuntu-base
 0211f0f72f4b2451ec07892c44d8c9c38c93f1496b3e11fda9cddaa8d553c45c
 $ docker inspect srv1 | grep IPAddress

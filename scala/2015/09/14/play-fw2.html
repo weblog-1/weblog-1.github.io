@@ -23,8 +23,8 @@
 
 
     
-    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1454113277" rel="stylesheet">
-    <link href="/assets/css/style.css?1454113277" rel="stylesheet">
+    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1481986637" rel="stylesheet">
+    <link href="/assets/css/style.css?1481986637" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="/assets/themes/bootstrap/resources/respond/Respond.min.js"></script>
     <![endif]-->
@@ -153,7 +153,7 @@
 
 <p>単純に、リクエストした内容をDBに登録するフローを試してみます。</p>
 
-<h2 id="routing">routingについて</h2>
+<h2 id="routingについて">routingについて</h2>
 
 <p>まずはルーティングについて確認しておきましょう。</p>
 
@@ -166,7 +166,7 @@
 
 <p>Actionの方にも定義を追加します。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-scala highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>  def register(id: Long, name: String) = Action {
     Ok(views.html.register(id, name))
   }
@@ -180,9 +180,9 @@
 
 <p>型に合わないリクエスト(/register/abc/1 など)では、Bad Requestになります。</p>
 
-<h2 id="db">DB接続</h2>
+<h2 id="db接続">DB接続</h2>
 
-<h3 id="mysql-connector-java-">mysql-connector-java の追加</h3>
+<h3 id="mysql-connector-java-の追加">mysql-connector-java の追加</h3>
 
 <p>build.sbtに設定を追加します。</p>
 
@@ -193,13 +193,13 @@
 
 <p>ここで一応activatorを再起動しました。</p>
 
-<h3 id="insert">INSERT文実行</h3>
+<h3 id="insert文実行">INSERT文実行</h3>
 
 <p>簡単なINSERT文を実行してみます。</p>
 
 <p>テーブルは以下のように用意しています。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-sql highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#B06;font-weight:bold">CREATE</span> <span style="color:#339;font-weight:bold">TABLE</span> registers (
 id <span style="color:#0a8;font-weight:bold">bigint</span> <span style="color:#088;font-weight:bold">PRIMARY</span> <span style="color:#339;font-weight:bold">KEY</span> <span style="color:#080;font-weight:bold">NOT</span> <span style="color:#069">NULL</span>,
 name <span style="color:#0a8;font-weight:bold">varchar</span>(<span style="color:#00D">512</span>) <span style="color:#080;font-weight:bold">NOT</span> <span style="color:#069">NULL</span>,
@@ -213,7 +213,7 @@ created_at <span style="color:#0a8;font-weight:bold">datetime</span> <span style
 
 <p><strong>app/controllers/Application.scala</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-scala highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>import play.api.Play.current
 import play.api.db._
 
@@ -271,7 +271,7 @@ ID: 1
 name: 東京都
 </code></pre>
 
-<h3 id="migrationorm">Migration/ORMについて</h3>
+<h3 id="migrationormについて">Migration/ORMについて</h3>
 
 <p>migrationについては、evolutionsというものがあるようですが、
 日本語のドキュメントは前のバージョンなので、少し内容が違っているようです。</p>
@@ -332,7 +332,7 @@ DROP TABLE registers ;
 
 <p>今度はレコードを登録する部分を変更してみます。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-scala highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>package controllers
 
 import play.api.Play.current

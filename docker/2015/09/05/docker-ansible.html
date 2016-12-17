@@ -23,8 +23,8 @@
 
 
     
-    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1454113277" rel="stylesheet">
-    <link href="/assets/css/style.css?1454113277" rel="stylesheet">
+    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1481986637" rel="stylesheet">
+    <link href="/assets/css/style.css?1481986637" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="/assets/themes/bootstrap/resources/respond/Respond.min.js"></script>
     <![endif]-->
@@ -148,11 +148,11 @@
 物理サーバや各種Virtual Machineにも流用することを考えると、
 ansibleやchefなどの利用は有効だと思います。</p>
 
-<h2 id="section">事前準備</h2>
+<h2 id="事前準備">事前準備</h2>
 
 <p>最初に前回作成したコンテナを起動して、IPアドレスを控えておきます。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ docker start srv1
 srv1
 $ docker ps -a
@@ -177,13 +177,13 @@ $ docker inspect srv1 | grep IPAddress
   <li>emacs (事前に必要なパッケージをインストールして、ソースをビルド)</li>
 </ul>
 
-<h3 id="ansible">ansibleのインストール</h3>
+<h3 id="ansibleのインストール">ansibleのインストール</h3>
 
 <p>ansibleのインストールはaptitudeで行います。</p>
 
 <p>インストールの確認も兼ねて、疎通確認のコマンドを実行してみます。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ sudo aptitude install ansible
 ...
 $ echo 172.17.0.1 &gt; host             
@@ -198,7 +198,7 @@ $ ansible -i host -u docker 172.17.0.1 -m ping
 
 <hr />
 
-<h2 id="mysql">実例 - mysqlのインストール</h2>
+<h2 id="実例---mysqlのインストール">実例 - mysqlのインストール</h2>
 
 <p>mysqlはaptitudeでインストールします。</p>
 
@@ -206,7 +206,7 @@ $ ansible -i host -u docker 172.17.0.1 -m ping
 
 <p>パッケージ情報のアップデートを行ってからインストールするため、通常では実行するコマンドは以下のようになります。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ sudo aptitude update
 $ sudo aptitude install mysql-server mysql-client libmysqlclient-dev
 </pre></div>
@@ -217,7 +217,7 @@ $ sudo aptitude install mysql-server mysql-client libmysqlclient-dev
 
 <p>ansibleでは、このYAMLファイルのことを’playbook’と呼んでいるようで、実行の際のコマンドは’ansible-playbook’になります。</p>
 
-<h3 id="playbook">playbookの記述</h3>
+<h3 id="playbookの記述">playbookの記述</h3>
 
 <p>最低限必要な設定は概ね以下のとおりです。</p>
 
@@ -232,15 +232,15 @@ $ sudo aptitude install mysql-server mysql-client libmysqlclient-dev
 
 <p>‘command: ‘ で実行するコマンドを設定します。</p>
 
-<h3 id="section-1">パスワードの自動設定</h3>
+<h3 id="パスワードの自動設定">パスワードの自動設定</h3>
 
 <p>mysql-serverをインストールする際、rootユーザのパスワード入力を要求されますが、
 そのままではそこでインストール処理がストップします。</p>
 
-<p>~~この問題に対しては、かなり強引ですが、ひとまず仮パスワードを予め設定しておき、
-入力しなくて済むようにすることで回避します。~~</p>
+<p><del>この問題に対しては、かなり強引ですが、ひとまず仮パスワードを予め設定しておき、
+入力しなくて済むようにすることで回避します。</del></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ sudo debconf-set-selections &lt;&lt;&lt; 'mysql-server-5.6 mysql-server/root_password password root'
 $ sudo debconf-set-selections &lt;&lt;&lt; 'mysql-server-5.6 mysql-server/root_password_again password root'
 </pre></div>
@@ -260,7 +260,7 @@ chefでのインストール例で使用しているものはそのままでは�
 
 <p><strong>mysql.yml</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-yaml highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#f8f;background:#505"><span style="color:#f4f">---</span></span>
 - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">hosts: 172.17.0.1</span></span>
   <span style="color:#606">sudo</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">true</span></span>
@@ -282,7 +282,7 @@ chefでのインストール例で使用しているものはそのままでは�
 
 <p>-i オプションで指定するhostファイルは疎通確認の際に使用したものです。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ ansible-playbook -i host mysql.yml
 PLAY [172.17.0.1] *************************************************************
 ...
@@ -294,18 +294,18 @@ PLAY RECAP ********************************************************************
 
 <hr />
 
-<h2 id="rbenv">実例 - rbenvのインストールと設定</h2>
+<h2 id="実例---rbenvのインストールと設定">実例 - rbenvのインストールと設定</h2>
 
 <p>mysqlはaptitudeでインストールしましたが、rbenvについてはgit cloneでインストールしたあと、
 任意のバージョンのrubyをインストールします。</p>
 
-<h3 id="section-2">変数の定義</h3>
+<h3 id="変数の定義">変数の定義</h3>
 
 <p>playbook内で使用できる変数を定義できます。</p>
 
 <p>以下のような記述です。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-yaml highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>  <span style="color:#606">vars</span>:
     <span style="color:#606">ruby_ver</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">2.2.3</span></span>
     <span style="color:#606">target</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">/home/docker/.rbenv</span></span>
@@ -315,7 +315,7 @@ PLAY RECAP ********************************************************************
 
 <p>先ほどのmysqlの場合と同じ要領で設定を行います。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-yaml highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#f8f;background:#505"><span style="color:#f4f">---</span></span>
 - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">hosts: 172.17.0.1</span></span>
   <span style="color:#606">user</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">docker</span></span>
@@ -357,7 +357,7 @@ PLAY RECAP ********************************************************************
 
 <p>とりあえずこのような感じで実行しましたが、エラーが発生しました。</p>
 
-<h3 id="dns">DNS設定</h3>
+<h3 id="dns設定">DNS設定</h3>
 
 <p>rbenvはdockerユーザのホームディレクトリにインストールするため、sudo設定を行っていません。</p>
 
@@ -367,7 +367,7 @@ PLAY RECAP ********************************************************************
 
 <p><strong>/etc/default/docker</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-text highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>DOCKER_OPTS=&quot;--dns 8.8.8.8 -g /path/to/docker&quot;
 </pre></div>
 </div>
@@ -377,16 +377,16 @@ PLAY RECAP ********************************************************************
   <li>-g /path/to/dockerはディレクトリを変更したためで、通常は不要です。</li>
 </ul>
 
-<h3 id="section-3">ディレクトリが存在する場合は実行しない</h3>
+<h3 id="ディレクトリが存在する場合は実行しない">ディレクトリが存在する場合は実行しない</h3>
 
 <p>git cloneはclone対象ディレクトリがある場合はエラーになります。</p>
 
 <p>存在確認を行って、存在する場合は実行しないコマンドにしたつもりですが、
 commandの場合はこの記述ではダメで、ansibleの機能で制御する必要があるようです。</p>
 
-<p>~~when: 1 == result というような記述で、
+<p><del>when: 1 == result というような記述で、
 あらかじめ存在確認のコマンド(test -e など)で結果を保存しておき、
-存在確認の結果で実行制御できるようです。~~</p>
+存在確認の結果で実行制御できるようです。</del></p>
 
 <p><strong>後で動かしてみると、これもダメみたいでした。</strong></p>
 
@@ -394,7 +394,7 @@ commandの場合はこの記述ではダメで、ansibleの機能で制御する
 
 <p><strong>stat: は指定したpathの状態を取得できるもので、今回は存在確認ができれば良いので、以下のようにしています。</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-yaml highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>    - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">stat: path=</span></span>
       <span style="color:#606">register</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">rbenv</span></span>
     - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">name: clone rbenv</span></span>
@@ -404,11 +404,11 @@ commandの場合はこの記述ではダメで、ansibleの機能で制御する
 </div>
 </div>
 
-<h3 id="section-4">ファイルをコピーする</h3>
+<h3 id="ファイルをコピーする">ファイルをコピーする</h3>
 
 <p>copy: src=xxx dest=xxx というフォーマットで実現できます</p>
 
-<h3 id="section-5">環境変数の追加と反映について</h3>
+<h3 id="環境変数の追加と反映について">環境変数の追加と反映について</h3>
 
 <p>.bashrcに追加した環境変数の反映は、通常ではsource等で行いますが、
 ansibleで追加したあとはそのままでは反映できないようです。</p>
@@ -426,7 +426,7 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 <p><strong>rbenv.yml</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-yaml highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#f8f;background:#505"><span style="color:#f4f">---</span></span>
 - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">hosts: 172.17.0.1</span></span>
   <span style="color:#606">user</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">docker</span></span>
@@ -459,31 +459,31 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 <hr />
 
-<h2 id="emacs">実例 - emacsのインストール</h2>
+<h2 id="実例---emacsのインストール">実例 - emacsのインストール</h2>
 
 <p>今度は、emacsをソースコードからビルド＆インストールします。</p>
 
-<h3 id="section-6">ファイルのダウンロード</h3>
+<h3 id="ファイルのダウンロード">ファイルのダウンロード</h3>
 
 <p>ansibleにはファイルをダウンロードする機能があります。</p>
 
 <p>以下のように記述することで、ネット上からファイルをダウンロードできます。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-yaml highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>    - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">name: get emacs src</span></span>
       <span style="color:#606">get_url</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">url=http://ftp.jaist.ac.jp/pub/GNU/emacs/emacs-.tar.xz dest=</span></span>
 </pre></div>
 </div>
 </div>
 
-<h3 id="section-7">ディレクトリの変更</h3>
+<h3 id="ディレクトリの変更">ディレクトリの変更</h3>
 
 <p>tar.gzなどをダウンロードしてビルドする際、展開したディレクトリに移動する必要があります。</p>
 
 <p>ansibleのタスクは、前のタスクの状態を引き継がないようになっているようなので、
 カレントディレクトリの変更を明示する必要があります。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-yaml highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>    - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">name: make emacs</span></span>
       <span style="color:#606">command</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">make chdir=/emacs-</span></span>
 </pre></div>
@@ -495,7 +495,7 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 <p><strong>emacs.yml</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-yaml highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#f8f;background:#505"><span style="color:#f4f">---</span></span>
 - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">hosts: 172.17.0.1</span></span>
   <span style="color:#606">sudo</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">true</span></span>
@@ -536,7 +536,7 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 <hr />
 
-<h2 id="include">includeについて</h2>
+<h2 id="includeについて">includeについて</h2>
 
 <p>include: を使用することで、playbook内から他のplaybookを呼び出すことができます。</p>
 
@@ -550,7 +550,7 @@ PATHの場合は、絶対パス指定という確実な方法があるため、�
 
 <p><strong>srv1.yml</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-yaml highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#f8f;background:#505"><span style="color:#f4f">---</span></span>
 - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">hosts: 172.17.0.1</span></span>
   <span style="color:#606">sudo</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">true</span></span>

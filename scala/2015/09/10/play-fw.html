@@ -23,8 +23,8 @@
 
 
     
-    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1454113277" rel="stylesheet">
-    <link href="/assets/css/style.css?1454113277" rel="stylesheet">
+    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1481986637" rel="stylesheet">
+    <link href="/assets/css/style.css?1481986637" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="/assets/themes/bootstrap/resources/respond/Respond.min.js"></script>
     <![endif]-->
@@ -152,7 +152,7 @@
 <p>チュートリアルはとても充実していて、少しバージョンが古いですが日本語訳もありますので、
 真面目にやりたい人は上記を見ることをおすすめします。</p>
 
-<h2 id="play-framework">Play Frameworkについて</h2>
+<h2 id="play-frameworkについて">Play Frameworkについて</h2>
 
 <ul>
   <li>scala / java 製</li>
@@ -163,13 +163,13 @@
 
 <p>今のところはこれくらいの理解しかありません。</p>
 
-<h2 id="section">インストール</h2>
+<h2 id="インストール">インストール</h2>
 
 <p>色々方法があるようですが、以下に書いているTypesafe Activatorというものを使用する方法を試します。</p>
 
 <p><a href="https://www.playframework.com/documentation/ja/2.3.x/Installing">Installing</a></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ sudo aptitude -y install openjdk-8-jdk
 ...
 $ wget https://downloads.typesafe.com/typesafe-activator/1.3.6/typesafe-activator-1.3.6.zip
@@ -181,11 +181,11 @@ $ $SHELL -l
 </div>
 </div>
 
-<h2 id="project">project作成</h2>
+<h2 id="project作成">project作成</h2>
 
 <p>このあたりはrailsなどと同じような雰囲気です。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ activator new test-app play-scala
 ...
 $ cd test-app
@@ -204,7 +204,7 @@ $ ./activator run
 
 <p><strong>app/controllers/Application.scala</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-scala highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>package controllers
 
 import play.api._
@@ -229,7 +229,7 @@ class Application extends Controller {
 
 <p><strong>app/views/first.scala.html</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-html highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>@(message: String)
 
 <span style="color:#070;font-weight:bold">&lt;h1&gt;</span>@message<span style="color:#070;font-weight:bold">&lt;/h1&gt;</span>
@@ -252,7 +252,7 @@ GET     /first                      controllers.Application.first
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 </code></pre>
 
-<h2 id="section-1">テンプレート変数</h2>
+<h2 id="テンプレート変数">テンプレート変数</h2>
 
 <p>こういうのは通常、Modelや自前のオブジェクトなどを渡すのがよくあるパターンなのでしょうか。</p>
 
@@ -263,7 +263,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 <p><strong>app/controllers/Application.scala</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-scala highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>package controllers
 
 import play.api._
@@ -292,7 +292,7 @@ class Application extends Controller {
 
 <p><strong>app/views/first.scala.html</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-html highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>(
 message: String,
 messages: Map[String, String],

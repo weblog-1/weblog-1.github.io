@@ -23,8 +23,8 @@
 
 
     
-    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1454113277" rel="stylesheet">
-    <link href="/assets/css/style.css?1454113277" rel="stylesheet">
+    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1481986637" rel="stylesheet">
+    <link href="/assets/css/style.css?1481986637" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="/assets/themes/bootstrap/resources/respond/Respond.min.js"></script>
     <![endif]-->
@@ -142,7 +142,7 @@
 <p>Play Frameworkを触っていて、やはりScala言語自体に対する理解が足りなすぎることに直面した、
 というのが実際のところです。</p>
 
-<h2 id="section">入門書について</h2>
+<h2 id="入門書について">入門書について</h2>
 
 <p>Scalaの書籍はあまり多くないですが、今だとおそらく以下の本をまず読む人が多いと思います。</p>
 
@@ -156,7 +156,7 @@
 
 <p>とにかく、これを一回通読したあとで、プログラムの作成に臨んでいます。</p>
 
-<h2 id="section-1">環境作成</h2>
+<h2 id="環境作成">環境作成</h2>
 
 <p>activatorでもよかったのですが、構成についても理解が必要だと思いましたので、
 sbtenvを使用します。</p>
@@ -165,7 +165,7 @@ sbtenvを使用します。</p>
 
 <p>インストールは大抵の*envとほとんど同じです。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ git clone git://github.com/mazgi/sbtenv.git ~/.sbtenv
 $ echo 'export PATH=&quot;${HOME}/.sbtenv/bin:${PATH}&quot;' &gt;&gt; ~/.bashrc
 $ echo 'eval &quot;$(sbtenv init -)&quot;' &gt;&gt; ~/.bashrc
@@ -179,7 +179,7 @@ $ echo 'eval &quot;$(sbtenv init -)&quot;' &gt;&gt; ~/.bashrc
 
 <p>まずはディレクトリ構成を準備します。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ mkdir crawler-scala ; cd $_
 $ mkdir lib
 $ mkdir -p src/main/scala
@@ -187,7 +187,7 @@ $ mkdir -p src/main/scala
 </div>
 </div>
 
-<h3 id="web">Webページの取得</h3>
+<h3 id="webページの取得">Webページの取得</h3>
 
 <p>Dispatchというライブラリがあるようですが、どうも使用方法が判然としないので、
 ひとまずApache HttpClientを使用します。</p>
@@ -209,7 +209,7 @@ $ mkdir -p src/main/scala
 
 <p><strong>build.sbt</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-scala highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>libraryDependencies ++= Seq(
 &quot;com.typesafe.scala-logging&quot; %% &quot;scala-logging&quot; % &quot;3.1.0&quot;,
 &quot;org.apache.httpcomponents&quot; % &quot;httpclient&quot; % &quot;4.5.1&quot;
@@ -230,7 +230,7 @@ $ mkdir -p src/main/scala
 
 <p><strong>main/scala/GetPage.scala</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-scala highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>import org.apache.http._
 import org.apache.http.impl.client.HttpClients
 import org.apache.http.client.methods.HttpGet
@@ -266,7 +266,7 @@ result
 <p>sbtプロジェクトを実行する際、通常は’sbt run’で実行できますが、
 引数がある場合は、以下のようにクォートしないと正常に認識できません。</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ sbt 'run http://www.yahoo.co.jp/'
 ...
 &lt;/html&gt;

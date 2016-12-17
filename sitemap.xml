@@ -1,78 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://weblog-1.github.io/ruby/2015/12/07/capistrano</loc>
-    <lastmod>2015-12-07T00:00:00+09:00</lastmod>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/ruby/2015/11/14/blowfish-ruby-php</loc>
-    <lastmod>2015-11-14T00:00:00+09:00</lastmod>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/scala/2015/09/23/scala-1</loc>
-    <lastmod>2015-09-23T00:00:00+09:00</lastmod>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/scala/2015/09/14/play-fw2</loc>
-    <lastmod>2015-09-14T00:00:00+09:00</lastmod>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/scala/2015/09/10/play-fw</loc>
-    <lastmod>2015-09-10T00:00:00+09:00</lastmod>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/docker/2015/09/05/docker-ansible</loc>
-    <lastmod>2015-09-05T23:50:00+09:00</lastmod>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/docker/2015/08/26/docker-file</loc>
-    <lastmod>2015-08-26T00:00:00+09:00</lastmod>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/docker/2015/08/24/docker</loc>
-    <lastmod>2015-08-24T00:00:00+09:00</lastmod>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/archive</loc>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/categories</loc>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/</loc>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/pages</loc>
-  </url>
-  <url>
-    <loc>http://weblog-1.github.io/tags</loc>
-  </url>
-    <url>
-      <loc>http://weblog-1.github.io/docker/2015/08/24/docker</loc>
-    </url>
-    <url>
-      <loc>http://weblog-1.github.io/docker/2015/08/26/docker-file</loc>
-    </url>
-    <url>
-      <loc>http://weblog-1.github.io/docker/2015/09/05/docker-ansible</loc>
-    </url>
-    <url>
-      <loc>http://weblog-1.github.io/scala/2015/09/10/play-fw</loc>
-    </url>
-    <url>
-      <loc>http://weblog-1.github.io/scala/2015/09/14/play-fw2</loc>
-    </url>
-    <url>
-      <loc>http://weblog-1.github.io/scala/2015/09/23/scala-1</loc>
-    </url>
-    <url>
-      <loc>http://weblog-1.github.io/ruby/2015/11/14/blowfish-ruby-php</loc>
-    </url>
-    <url>
-      <loc>http://weblog-1.github.io/ruby/2015/12/07/capistrano</loc>
-    </url>
-  <url>
-    <loc>http://weblog-1.github.io/404.html</loc>
-    <lastmod>2015-11-15T04:14:44+09:00</lastmod>
-  </url>
+<url>
+<loc>http://weblog-1.github.io/ruby/2016/12/17/http-request-test</loc>
+<lastmod>2016-12-17T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://weblog-1.github.io/ruby/2015/12/07/capistrano</loc>
+<lastmod>2015-12-07T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://weblog-1.github.io/ruby/2015/11/14/blowfish-ruby-php</loc>
+<lastmod>2015-11-14T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://weblog-1.github.io/scala/2015/09/23/scala-1</loc>
+<lastmod>2015-09-23T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://weblog-1.github.io/scala/2015/09/14/play-fw2</loc>
+<lastmod>2015-09-14T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://weblog-1.github.io/scala/2015/09/10/play-fw</loc>
+<lastmod>2015-09-10T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://weblog-1.github.io/docker/2015/09/05/docker-ansible</loc>
+<lastmod>2015-09-05T23:50:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://weblog-1.github.io/docker/2015/08/26/docker-file</loc>
+<lastmod>2015-08-26T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://weblog-1.github.io/docker/2015/08/24/docker</loc>
+<lastmod>2015-08-24T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://weblog-1.github.io/archive</loc>
+</url>
+<url>
+<loc>http://weblog-1.github.io/categories</loc>
+</url>
+<url>
+<loc>http://weblog-1.github.io/</loc>
+</url>
+<url>
+<loc>http://weblog-1.github.io/pages</loc>
+</url>
+<url>
+<loc>http://weblog-1.github.io/tags</loc>
+</url>
+<url>
+<loc>http://weblog-1.github.io/404.html</loc>
+<lastmod>2016-12-17T23:25:45+09:00</lastmod>
+</url>
 </urlset>

@@ -23,8 +23,8 @@
 
 
     
-    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1454113277" rel="stylesheet">
-    <link href="/assets/css/style.css?1454113277" rel="stylesheet">
+    <link href="/assets/themes/bootstrap/resources/bootstrap/css/bootstrap.min.css?1481986638" rel="stylesheet">
+    <link href="/assets/css/style.css?1481986638" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="/assets/themes/bootstrap/resources/respond/Respond.min.js"></script>
     <![endif]-->
@@ -151,7 +151,7 @@
 <p>暗号アルゴリズムはBlowfishですが、
 これもいくつかやり方があり、正直言って正確なところは掴みきれていない印象です。</p>
 
-<h2 id="section">暗号・復号の前提</h2>
+<h2 id="暗号復号の前提">暗号・復号の前提</h2>
 
 <p>Blowfishで暗号化する際、使用するのは以下のものです。</p>
 
@@ -179,7 +179,7 @@ CBCでは必須になっています。</p>
 <p>これは暗号強度に関わってくるものなので、
 ここではCBCを使用することにしました。</p>
 
-<h2 id="phpblowfish">PHPでのBlowfish暗号化</h2>
+<h2 id="phpでのblowfish暗号化">PHPでのBlowfish暗号化</h2>
 
 <p>PHPで暗号化する場合、拡張モジュールMCryptを使用することが多いと思います。
 Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもできます(かなり古いですが)。</p>
@@ -188,7 +188,7 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
 
 <p><strong>encrypt.php</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-php highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>#!/usr/bin/env php
 <span style="font-weight:bold;color:#666">&lt;?php</span>
 <span style="color:#369;font-weight:bold">define</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">PASSPHRASE</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">passphrase-test</span><span style="color:#710">'</span></span>);
@@ -253,7 +253,7 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
 
 <p><strong>encrypt_pear.php</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-php highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>#!/usr/bin/env php
 <span style="font-weight:bold;color:#666">&lt;?php</span>
 <span style="color:#369;font-weight:bold">require_once</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vendor/autoload.php</span><span style="color:#710">'</span></span>;
@@ -293,7 +293,7 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
 
 <p><strong>composer.json</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-json highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>{
     <span style="color:#606"><span style="color:#404">&quot;</span><span>repositories</span><span style="color:#404">&quot;</span></span>: [
         {
@@ -311,7 +311,7 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
 </div>
 </div>
 
-<h2 id="rubyblowfish">rubyでのBlowfish復号</h2>
+<h2 id="rubyでのblowfish復号">rubyでのBlowfish復号</h2>
 
 <p>rubyの方もlibmcryptを使用できるgemがありますが、
 今回はgemをインストールせずにできるかどうかを試してみました。</p>
@@ -320,7 +320,7 @@ Blowfishの場合は、PEARライブラリCrypt_Blowfishを用いることもで
 
 <p><strong>decrypt.rb</strong></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
+<div class="language-ruby highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#34b">#!/usr/bin/env ruby</span>
 <span style="color:#777"># coding: utf-8</span>
 require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">openssl</span><span style="color:#710">'</span></span>
